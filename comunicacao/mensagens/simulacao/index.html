@@ -8,30 +8,30 @@
   
   
   
-  <title>Influunt Documentação</title>
+  <title>Simulação - Influunt Documentação</title>
   
 
-  <link rel="shortcut icon" href="./img/favicon.ico">
+  <link rel="shortcut icon" href="../../../img/favicon.ico">
 
   
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
-  <link rel="stylesheet" href="./css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="./css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="./css/highlight.css">
+  <link rel="stylesheet" href="../../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/highlight.css">
 
   
   <script>
     // Current page data
-    var mkdocs_page_name = "None";
-    var mkdocs_page_input_path = "index.md";
-    var mkdocs_page_url = "/";
+    var mkdocs_page_name = "Simulação";
+    var mkdocs_page_input_path = "comunicacao/mensagens/simulacao.md";
+    var mkdocs_page_url = "/comunicacao/mensagens/simulacao/";
   </script>
   
-  <script src="./js/jquery-2.1.1.min.js"></script>
-  <script src="./js/modernizr-2.8.3.min.js"></script>
-  <script type="text/javascript" src="./js/highlight.pack.js"></script>
-  <script src="./js/theme.js"></script> 
+  <script src="../../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../../js/highlight.pack.js"></script>
+  <script src="../../../js/theme.js"></script> 
 
   
 </head>
@@ -43,9 +43,9 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
       <div class="wy-side-nav-search">
-        <a href="." class="icon icon-home"> Influunt Documentação</a>
+        <a href="../../.." class="icon icon-home"> Influunt Documentação</a>
         <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
   </form>
 </div>
@@ -55,15 +55,8 @@
         <ul class="current">
           
             <li>
-    <li class="toctree-l1 current">
-        <a class="current" href=".">Home</a>
-        
-            <ul>
-            
-                <li class="toctree-l3"><a href="#como-usar-essa-documentacao">Como usar essa documentação</a></li>
-                
-            
-            </ul>
+    <li class="toctree-l1 ">
+        <a class="" href="../../..">Home</a>
         
     </li>
 <li>
@@ -75,14 +68,14 @@
         
             
     <li class="toctree-l1 ">
-        <a class="" href="comunicacao/introducao/">Introdução</a>
+        <a class="" href="../../introducao/">Introdução</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="comunicacao/envelope/">Envelope</a>
+        <a class="" href="../../envelope/">Envelope</a>
         
     </li>
 
@@ -94,42 +87,53 @@
         
             
     <li class="toctree-l1 ">
-        <a class="" href="comunicacao/mensagens/conectividade/">Conectividade</a>
+        <a class="" href="../conectividade/">Conectividade</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="comunicacao/mensagens/ciclo_vida/">Ciclo de Vida</a>
+        <a class="" href="../ciclo_vida/">Ciclo de Vida</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="comunicacao/mensagens/configuracao/">Configuração de um Controlador</a>
+        <a class="" href="../configuracao/">Configuração de um Controlador</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="comunicacao/mensagens/planos/">Planos e Tabela Horária</a>
+        <a class="" href="../planos/">Planos e Tabela Horária</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="comunicacao/mensagens/status/">Telemetria e Status</a>
+        <a class="" href="../status/">Telemetria e Status</a>
         
     </li>
 
         
             
-    <li class="toctree-l1 ">
-        <a class="" href="comunicacao/mensagens/simulacao/">Simulação</a>
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Simulação</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#opcoes-de-simulacao">Opções de Simulação</a></li>
+                
+                    <li><a class="toctree-l4" href="#controlador-fisico">Controlador Físico</a></li>
+                
+                    <li><a class="toctree-l4" href="#controlador-virtual">Controlador Virtual</a></li>
+                
+            
+            </ul>
         
     </li>
 
@@ -139,7 +143,7 @@
         
             
     <li class="toctree-l1 ">
-        <a class="" href="comunicacao/seguranca/">Segurança</a>
+        <a class="" href="../../seguranca/">Segurança</a>
         
     </li>
 
@@ -157,7 +161,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href=".">Influunt Documentação</a>
+        <a href="../../..">Influunt Documentação</a>
       </nav>
 
       
@@ -165,11 +169,19 @@
         <div class="rst-content">
           <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href=".">Docs</a> &raquo;</li>
+    <li><a href="../../..">Docs</a> &raquo;</li>
     
       
+        
+          <li>Comunicação &raquo;</li>
+        
+      
+        
+          <li>Mensagens &raquo;</li>
+        
+      
     
-    <li>Home</li>
+    <li>Simulação</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -179,7 +191,9 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="como-usar-essa-documentacao">Como usar essa documentação</h1>
+                <h1 id="opcoes-de-simulacao">Opções de Simulação</h1>
+<h2 id="controlador-fisico">Controlador Físico</h2>
+<h2 id="controlador-virtual">Controlador Virtual</h2>
               
             </div>
           </div>
@@ -187,8 +201,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="comunicacao/introducao/" class="btn btn-neutral float-right" title="Introdução">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../../seguranca/" class="btn btn-neutral float-right" title="Segurança">Next <span class="icon icon-circle-arrow-right"></span></a>
       
+      
+        <a href="../status/" class="btn btn-neutral" title="Telemetria e Status"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -214,16 +230,13 @@
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
+        <span><a href="../status/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
-        <span style="margin-left: 15px"><a href="comunicacao/introducao/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+        <span style="margin-left: 15px"><a href="../../seguranca/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
 
 </body>
 </html>
-
-<!--
-MkDocs version : 0.15.3
-Build Date UTC : 2016-08-16 16:57:34.867746
--->

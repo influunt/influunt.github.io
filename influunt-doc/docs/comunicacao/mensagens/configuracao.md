@@ -1,8 +1,8 @@
 # Introdução
-A estrutura do controlador é definida pelo objeto [CONTROLADOR](#controlador) que incluí seus dados básicos e listas de objetos associados. Para evitar referência cruzadas e problemas de navegação no grafo de objetos, adotou-se uma estratura de JSON desnormatizada. Sendo assim, todos os objetos são escritos diretamente na raiz do controlador e não internamente de forma hierarquica. Em compensação os objetos internos trazem referências para os objetos externos.
+A estrutura do controlador é definida pelo objeto [CONTROLADOR](#controlador) que inclui seus dados básicos e listas de objetos associados. Para evitar referências cruzadas e problemas de navegação no grafo de objetos, adotou-se uma estratura de JSON desnormatizada. Sendo assim, todos os objetos são escritos diretamente na raiz do controlador e não internamente de forma hierárquica. Em compensação os objetos internos trazem referências para os objetos externos.
 
 
-A figura abaixo apresenta dos os objetos que fazem parte da configuração de um controlador. A setas representam referências entre esses objetos.
+A figura abaixo apresenta os objetos que fazem parte da configuração de um controlador. As setas representam referências entre esses objetos.
 
 
 ![Controlador](/img/controlador.png)
@@ -13,7 +13,7 @@ A figura abaixo apresenta dos os objetos que fazem parte da configuração de um
 
 ### Especificação
 
-| Campo| Tipo | Obrigatorio| Descrição |
+| Campo| Tipo | Obrigatório| Descrição |
 | -----|----- | ---------- | --------- |
 | id | String GUUID |S| Identificador do Controlador |
 | numeroSMEE | String||N| Número SMEE do Controlador |
@@ -21,12 +21,12 @@ A figura abaixo apresenta dos os objetos que fazem parte da configuração de um
 | numeroSMEEConjugado2 |String|N| Número SMEE do controlador conjugado 2 |
 | numeroSMEEConjugado3 |String|N| Número SMEE do controlador conjugado 3 |
 | nomeEndereco | String|N| Descrição da localização do controlador |
-| dataCriacao | Data|N| Data de Criação do Controlador |
+| dataCriacao | Data|N| Data de Criação do controlador |
 | dataAtualizacao | Data|N| Data da última atualização do controlador |
 | CLC | String|N| Código de Localização do Controlador |
 | aneis | vetor de [anel](#anel)|S| Lista dos anéis do controlador |
 | estagios | vetor de [estagio](#estagio)|S| Lista dos estágios do controlador |
-| gruposSemaforicos | vetor de [grupos semáforico](#grupo-semaforico)|S| Lista dos grupos semafóricos do controlador |
+| gruposSemaforicos | vetor de [grupos semáforicos](#grupo-semaforico)|S| Lista dos grupos semafóricos do controlador |
 | detectores | vetor de [detector](#detector)|S| Lista dos detectores do controlador |
 | transicoesProibidas | vetor de [transição proibada](#transicao-proibida)|S| Lista das transições proibidas |
 | estagiosGruposSemaforicos | vetor de [estágio grupo semáforico](#estagio-grupo-semaforico)|S| Lista de estágios grupos semafóricos|
@@ -63,11 +63,11 @@ A figura abaixo apresenta dos os objetos que fazem parte da configuração de um
 
 ## Anel
 
-Característica que permite a um controlador operar como se fossem vários controladores independentes. Cada anel é responsável pelo controle de certo número de grupos focais e a programação semafórica que ocorre nesses grupos focais é totalmente independente da programação semafórica dos demais grupos focais do controlador, a menos do tempo de ciclo, que tem de ser igual para o controlador e todos os seus anéis.
+Característica que permite a um controlador operar como se fossem vários controladores independentes. Cada anel é responsável pelo controle de certo número de grupos focais e a programação semafórica que ocorre nesses grupos focais é totalmente independente da programação semafórica dos demais grupos focais do controlador, a menos pelo tempo de ciclo, que tem de ser igual para o controlador e todos os seus anéis.
 
 ### Especificação
 
-| Campo| Tipo | Obrigatorio| Descrição |
+| Campo| Tipo | Obrigatório| Descrição |
 | -----|----- | ---------- | --------- |
 | id | String GUUID |S| Identificador do Anel |
 | idJson | String GUUID |S| Identificador do Anel para referências dentro do JSON |
@@ -119,19 +119,19 @@ Característica que permite a um controlador operar como se fossem vários contr
 
 ## Grupo Semáforico
 
- Conjunto de grupos focais com indicações luminosas idênticas que controlam grupos de movimentos que recebem simultaneamente o direito de passagem e que possuem as mesmas fases. Utiliza-se a notação Gn para identificar tanto nos projetos como nas programações semafóricas o grupo semafórico de número "n". Quanto aos tipos temos: grupo semafórico veicular composto de 3 fases (vermelha, amarela e verde) e grupo semafórico de pedestre composto de 2 fases (vermelha e verde).
+ Conjunto de grupos focais com indicações luminosas idênticas às que controlam grupos de movimentos que recebem simultaneamente o direito de passagem e que possuem as mesmas fases. Utiliza-se a notação Gn para identificar tanto nos projetos como nas programações semafóricas o grupo semafórico de número "n". Quanto aos tipos temos: grupo semafórico veicular composto de 3 fases (vermelha, amarela e verde) e grupo semafórico de pedestre composto de 2 fases (vermelha e verde).
 
 ### Especificação 
 
-| Campo| Tipo | Obrigatorio| Descrição |
+| Campo| Tipo | Obrigatório| Descrição |
 | -----|----- | ---------- | --------- |
 | id   | String GUUID |S| Identificador do Grupo Semáforico |
 | idJson | String GUUID |S| Identificador do Grupo Semáforico para referências dentro do JSON |
 | tipo | String||S| PEDESTRE ou VEICULAR |
 | descricao | String||S| Descrição do Grupo Semafórico |
-| faseVermelhaApagadaAmareloIntermitente | Booleano |S| Define se caso houver uma falha na fase vermelha do grupo semáforico o anel entrar em amarelo intermitente |
+| faseVermelhaApagadaAmareloIntermitente | Booleano |S| Define se, caso houver uma falha na fase vermelha do grupo semáforico, o anel entra em amarelo intermitente |
 | tempoVerdeSeguranca | Inteiro||S| Tempo de verde de segurança do grupo semáforico |
-| anel | referência ao [anel](#anel)|S| Referência ao anel que essse grupo semáforico faz parte |
+| anel | referência ao [anel](#anel)|S| Referência ao anel que esse grupo semáforico faz parte |
 | verdesConflitantesOrigem | vetor de referência de [verdes conflitantes](#verde-conflitante)|S| Lista com as referências de verdes conflitantes que tem esse grupo semáforico como origem|
 | verdesConflitantesDestino | vetor de referência de [verdes conflitantes](#verde-conflitante)|S| Lista com as referências de verdes conflitantes que tem esse grupo semáforico como destino|
 | estagiosGruposSemaforicos | vetor de referência de [estágio grupo semafórico](#estagio-grupo-semaforico)|S| Lista com as referências de estágios grupos semafóricos associado a esse grupo semáforico|
@@ -189,17 +189,17 @@ Intervalo de tempo em que um ou mais grupos semafóricos recebem simultaneamente
 
 ### Especificação
 
-| Campo| Tipo | Obrigatorio| Descrição |
+| Campo| Tipo | Obrigatório| Descrição |
 | -----|----- | ---------- | --------- |
 | id | String GUUID |S| Identificador do Estágio |
 | idJson | String GUUID |S| Identificador do Estágio para referências dentro do JSON |
 | tempoMaximoPermanencia | Inteiro||S| O tempo máximo que o estágio pode ter direito de passagem |
-| tempoMaximoPermanenciaAtivado | Booleano||S| Define se o tempo máximo de permanencia será monitorado |
+| tempoMaximoPermanenciaAtivado | Booleano||S| Define se o tempo máximo de permanência será monitorado |
 | demandaPrioritaria | Booleano||S| Define se o estágio é de demanda prioritária |
 | anel | referência ao [anel](#anel)|S| Referência ao anel que essse estágio faz parte |
 | origemDeTransicoesProibidas | vetor de referência das [transições proibidas](#transicao-proibida)|S| Lista com as referências de transições proibidas que tem esse estágio como origem|
 | destinoDeTransicoesProibidas | vetor de referência das [transições proibidas](#transicao-proibida)|S| Lista com as referências de transições proibidas que tem esse estágio como destino|
-| alternativaDeTransicoesProibidas | vetor de referência das [transições proibidas](#transicao-proibida)|S| Lista com as referências de transições proibidas que tem esse estágio como destino alternativa|
+| alternativaDeTransicoesProibidas | vetor de referência das [transições proibidas](#transicao-proibida)|S| Lista com as referências de transições proibidas que tem esse estágio como alternativa|
 | gruposSemaforicos | vetor de referência de [grupos semáforicos](#grupo-semafórico)|S| Lista com as referências de grupos semáforicos que estão associados a esse estágio|
 
 
@@ -246,14 +246,14 @@ Dispositivo de atuação acoplado ao controlador podendo ser:
 ### Especificação
 
 
-| Campo| Tipo | Obrigatorio| Descrição |
+| Campo| Tipo | Obrigatório| Descrição |
 | -----|----- | ---------- | --------- |
 | id   | String GUUID |S| Identificador do Detector |
 | idJson | String GUUID |S| Identificador do Detector para referências dentro do JSON |
 | tipo | String||S| PEDESTRE ou VEICULAR |
 | monitorado | Booleano |S| Define se o detector será monitorado |
-| anel | referência ao [anel](#anel)|S| Referência ao anel que essse detector faz parte |
-| estagio | referência ao [estágio](#estagio)|S| Referência ao estágio que essse detector faz parte |
+| anel | referência ao [anel](#anel)|S| Referência ao anel que esse detector faz parte |
+| estagio | referência ao [estágio](#estagio)|S| Referência ao estágio que esse detector faz parte |
 
 TODO: Incluir campos de monitoramento
 
@@ -281,7 +281,7 @@ Representa a transição entre o estágio que está perdendo o direito de passag
 
 ### Especificação
 
-| Campo| Tipo | Obrigatorio| Descrição |
+| Campo| Tipo | Obrigatório| Descrição |
 | -----|----- | ---------- | --------- |
 | id | String GUUID |S| Identificador da Transição |
 | idJson | String GUUID |S| Identificador da Transição para referências dentro do JSON |
@@ -318,7 +318,7 @@ Representa a transição entre o estágio que está perdendo o direito de passag
 Representa a proibição de transição entre dois estágios.
 ### Especificação
 
-| Campo| Tipo | Obrigatorio| Descrição |
+| Campo| Tipo | Obrigatório| Descrição |
 | -----|----- | ---------- | --------- |
 | id | String GUUID |S| Identificador da Transição Proibida |
 | idJson | String GUUID |S| Identificador da Transição Proibida para referências dentro do JSON |
@@ -349,7 +349,7 @@ Representa a proibição de transição entre dois estágios.
 Agrupamento de Tabela Entre Verdes Transição.
 ### Especificação
 
-| Campo| Tipo | Obrigatorio| Descrição |
+| Campo| Tipo | Obrigatório| Descrição |
 | -----|----- | ---------- | --------- |
 | id   | String GUUID |S| Identificador da Tabela de Entre Verdes |
 | idJson | String GUUID |S| Identificador da Tabela de Entre Verdes para referências dentro do JSON |
@@ -388,7 +388,7 @@ Intervalo de tempo compreendido entre o final do verde de um estágio e o iníci
 ### Especificação
 
 
-| Campo| Tipo | Obrigatorio| Descrição |
+| Campo| Tipo | Obrigatório| Descrição |
 | -----|----- | ---------- | --------- |
 | id | String GUUID |S| Identificador da Tabela de Entre Verdes Transições |
 | idJson | String GUUID |S| Identificador da Tabela de Entre Verdes Transições para referências dentro do JSON |
@@ -423,7 +423,7 @@ Objeto que representa a associação entre grupos semafóricos x estágios.
 
 ### Especificação
 
-| Campo| Tipo | Obrigatorio| Descrição |
+| Campo| Tipo | Obrigatório| Descrição |
 | -----|----- | ---------- | --------- |
 | id | String GUUID |S| Identificador do Estágio Grupo Semafórico |
 | idJson | String GUUID |S| Identificador do Estágio Grupo Semafórico para referências dentro do JSON |
@@ -431,7 +431,7 @@ Objeto que representa a associação entre grupos semafóricos x estágios.
 | estagio | referência a [estágio](#estagio)|S| Referência ao estágio |
 | grupoSemaforico | referência a [grupo semáforico](#grupo-semaforico)|S| Referência ao grupo semafórico |
 
-todo: revisar o campo ativo
+TODO: revisar o campo ativo
 
 ### Exemplo JSON
 
@@ -456,7 +456,7 @@ Representa um conflito entre dois grupos semafóricos que não têm permissão d
 
 ### Especificação
 
-| Campo| Tipo | Obrigatorio| Descrição |
+| Campo| Tipo | Obrigatório| Descrição |
 | -----|----- | ---------- | --------- |
 | id | String GUUID |S| Identificador do Verde Conflitante |
 | idJson | String GUUID |S| Identificador do Verde Conflitante para referências dentro do JSON |

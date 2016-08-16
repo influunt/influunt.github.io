@@ -1,4 +1,4 @@
-# Introdução a Comunicação entre a Central e os Controladores
+# Introdução à Comunicação entre a Central e os Controladores
 
 Toda a comunicação entre a central e os controladores (e vice-versa) acontece de forma assíncrona utilizando o protocolo 
 aberto [MQTT](http://mqtt.org). O protocolo [MQTT](http://mqtt.org) provê um mecanismo de comunicação para redes de baixa 

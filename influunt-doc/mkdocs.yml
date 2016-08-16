@@ -1,0 +1,16 @@
+site_name: Influunt Documentação
+theme: readthedocs
+pages:
+- Home: 'index.md'
+- Comunicação:
+    - 'Introdução': 'comunicacao/introducao.md'
+    - 'Envelope': 'comunicacao/envelope.md'
+    - 'Mensagens':
+      - 'Conectividade': 'comunicacao/mensagens/conectividade.md'
+      - 'Ciclo de Vida': 'comunicacao/mensagens/ciclo_vida.md'
+      - 'Configuração de um Controlador': 'comunicacao/mensagens/configuracao.md'
+      - 'Planos e Tabela Horária': 'comunicacao/mensagens/planos.md'
+      - 'Telemetria e Status': 'comunicacao/mensagens/status.md'
+      - 'Simulação': 'comunicacao/mensagens/simulacao.md'
+    - 'Segurança': 'comunicacao/seguranca.md'
+

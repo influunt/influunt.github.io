@@ -212,8 +212,8 @@
             <div class="section">
               
                 <h1 id="introducao">Introdução</h1>
-<p>A estrutura do controlador é definida pelo objeto <a href="#controlador">CONTROLADOR</a> que incluí seus dados básicos e listas de objetos associados. Para evitar referência cruzadas e problemas de navegação no grafo de objetos, adotou-se uma estratura de JSON desnormatizada. Sendo assim, todos os objetos são escritos diretamente na raiz do controlador e não internamente de forma hierarquica. Em compensação os objetos internos trazem referências para os objetos externos.</p>
-<p>A figura abaixo apresenta dos os objetos que fazem parte da configuração de um controlador. A setas representam referências entre esses objetos.</p>
+<p>A estrutura do controlador é definida pelo objeto <a href="#controlador">CONTROLADOR</a> que inclui seus dados básicos e listas de objetos associados. Para evitar referências cruzadas e problemas de navegação no grafo de objetos, adotou-se uma estratura de JSON desnormatizada. Sendo assim, todos os objetos são escritos diretamente na raiz do controlador e não internamente de forma hierárquica. Em compensação os objetos internos trazem referências para os objetos externos.</p>
+<p>A figura abaixo apresenta os objetos que fazem parte da configuração de um controlador. As setas representam referências entre esses objetos.</p>
 <p><img alt="Controlador" src="../../../img/controlador.png" /></p>
 <h2 id="controlador">Controlador</h2>
 <p>É o equipamento que fica em campo (na rua), sendo responsável pelo gerenciamento e controle dos semáforos. As programações semafóricas são inseridas neste equipamento.</p>
@@ -223,7 +223,7 @@
 <tr>
 <th>Campo</th>
 <th>Tipo</th>
-<th>Obrigatorio</th>
+<th>Obrigatório</th>
 <th>Descrição</th>
 </tr>
 </thead>
@@ -268,7 +268,7 @@
 <td>dataCriacao</td>
 <td>Data</td>
 <td>N</td>
-<td>Data de Criação do Controlador</td>
+<td>Data de Criação do controlador</td>
 </tr>
 <tr>
 <td>dataAtualizacao</td>
@@ -296,7 +296,7 @@
 </tr>
 <tr>
 <td>gruposSemaforicos</td>
-<td>vetor de <a href="#grupo-semaforico">grupos semáforico</a></td>
+<td>vetor de <a href="#grupo-semaforico">grupos semáforicos</a></td>
 <td>S</td>
 <td>Lista dos grupos semafóricos do controlador</td>
 </tr>
@@ -369,14 +369,14 @@
 </code></pre>
 
 <h2 id="anel">Anel</h2>
-<p>Característica que permite a um controlador operar como se fossem vários controladores independentes. Cada anel é responsável pelo controle de certo número de grupos focais e a programação semafórica que ocorre nesses grupos focais é totalmente independente da programação semafórica dos demais grupos focais do controlador, a menos do tempo de ciclo, que tem de ser igual para o controlador e todos os seus anéis.</p>
+<p>Característica que permite a um controlador operar como se fossem vários controladores independentes. Cada anel é responsável pelo controle de certo número de grupos focais e a programação semafórica que ocorre nesses grupos focais é totalmente independente da programação semafórica dos demais grupos focais do controlador, a menos pelo tempo de ciclo, que tem de ser igual para o controlador e todos os seus anéis.</p>
 <h3 id="especificacao_1">Especificação</h3>
 <table>
 <thead>
 <tr>
 <th>Campo</th>
 <th>Tipo</th>
-<th>Obrigatorio</th>
+<th>Obrigatório</th>
 <th>Descrição</th>
 </tr>
 </thead>
@@ -459,14 +459,14 @@
 </code></pre>
 
 <h2 id="grupo-semaforico">Grupo Semáforico</h2>
-<p>Conjunto de grupos focais com indicações luminosas idênticas que controlam grupos de movimentos que recebem simultaneamente o direito de passagem e que possuem as mesmas fases. Utiliza-se a notação Gn para identificar tanto nos projetos como nas programações semafóricas o grupo semafórico de número "n". Quanto aos tipos temos: grupo semafórico veicular composto de 3 fases (vermelha, amarela e verde) e grupo semafórico de pedestre composto de 2 fases (vermelha e verde).</p>
+<p>Conjunto de grupos focais com indicações luminosas idênticas às que controlam grupos de movimentos que recebem simultaneamente o direito de passagem e que possuem as mesmas fases. Utiliza-se a notação Gn para identificar tanto nos projetos como nas programações semafóricas o grupo semafórico de número "n". Quanto aos tipos temos: grupo semafórico veicular composto de 3 fases (vermelha, amarela e verde) e grupo semafórico de pedestre composto de 2 fases (vermelha e verde).</p>
 <h3 id="especificacao_2">Especificação</h3>
 <table>
 <thead>
 <tr>
 <th>Campo</th>
 <th>Tipo</th>
-<th>Obrigatorio</th>
+<th>Obrigatório</th>
 <th>Descrição</th>
 </tr>
 </thead>
@@ -499,7 +499,7 @@
 <td>faseVermelhaApagadaAmareloIntermitente</td>
 <td>Booleano</td>
 <td>S</td>
-<td>Define se caso houver uma falha na fase vermelha do grupo semáforico o anel entrar em amarelo intermitente</td>
+<td>Define se, caso houver uma falha na fase vermelha do grupo semáforico, o anel entra em amarelo intermitente</td>
 </tr>
 <tr>
 <td>tempoVerdeSeguranca</td>
@@ -511,7 +511,7 @@
 <td>anel</td>
 <td>referência ao <a href="#anel">anel</a></td>
 <td>S</td>
-<td>Referência ao anel que essse grupo semáforico faz parte</td>
+<td>Referência ao anel que esse grupo semáforico faz parte</td>
 </tr>
 <tr>
 <td>verdesConflitantesOrigem</td>
@@ -593,7 +593,7 @@
 <tr>
 <th>Campo</th>
 <th>Tipo</th>
-<th>Obrigatorio</th>
+<th>Obrigatório</th>
 <th>Descrição</th>
 </tr>
 </thead>
@@ -620,7 +620,7 @@
 <td>tempoMaximoPermanenciaAtivado</td>
 <td>Booleano</td>
 <td>S</td>
-<td>Define se o tempo máximo de permanencia será monitorado</td>
+<td>Define se o tempo máximo de permanência será monitorado</td>
 </tr>
 <tr>
 <td>demandaPrioritaria</td>
@@ -650,7 +650,7 @@
 <td>alternativaDeTransicoesProibidas</td>
 <td>vetor de referência das <a href="#transicao-proibida">transições proibidas</a></td>
 <td>S</td>
-<td>Lista com as referências de transições proibidas que tem esse estágio como destino alternativa</td>
+<td>Lista com as referências de transições proibidas que tem esse estágio como alternativa</td>
 </tr>
 <tr>
 <td>gruposSemaforicos</td>
@@ -708,7 +708,7 @@
 <tr>
 <th>Campo</th>
 <th>Tipo</th>
-<th>Obrigatorio</th>
+<th>Obrigatório</th>
 <th>Descrição</th>
 </tr>
 </thead>
@@ -741,13 +741,13 @@
 <td>anel</td>
 <td>referência ao <a href="#anel">anel</a></td>
 <td>S</td>
-<td>Referência ao anel que essse detector faz parte</td>
+<td>Referência ao anel que esse detector faz parte</td>
 </tr>
 <tr>
 <td>estagio</td>
 <td>referência ao <a href="#estagio">estágio</a></td>
 <td>S</td>
-<td>Referência ao estágio que essse detector faz parte</td>
+<td>Referência ao estágio que esse detector faz parte</td>
 </tr>
 </tbody>
 </table>
@@ -775,7 +775,7 @@
 <tr>
 <th>Campo</th>
 <th>Tipo</th>
-<th>Obrigatorio</th>
+<th>Obrigatório</th>
 <th>Descrição</th>
 </tr>
 </thead>
@@ -847,7 +847,7 @@
 <tr>
 <th>Campo</th>
 <th>Tipo</th>
-<th>Obrigatorio</th>
+<th>Obrigatório</th>
 <th>Descrição</th>
 </tr>
 </thead>
@@ -908,7 +908,7 @@
 <tr>
 <th>Campo</th>
 <th>Tipo</th>
-<th>Obrigatorio</th>
+<th>Obrigatório</th>
 <th>Descrição</th>
 </tr>
 </thead>
@@ -972,7 +972,7 @@
 <tr>
 <th>Campo</th>
 <th>Tipo</th>
-<th>Obrigatorio</th>
+<th>Obrigatório</th>
 <th>Descrição</th>
 </tr>
 </thead>
@@ -1051,7 +1051,7 @@
 <tr>
 <th>Campo</th>
 <th>Tipo</th>
-<th>Obrigatorio</th>
+<th>Obrigatório</th>
 <th>Descrição</th>
 </tr>
 </thead>
@@ -1088,7 +1088,7 @@
 </tr>
 </tbody>
 </table>
-<p>todo: revisar o campo ativo</p>
+<p>TODO: revisar o campo ativo</p>
 <h3 id="exemplo-json_9">Exemplo JSON</h3>
 <pre><code class="JSON">    {
       &quot;id&quot;: &quot;eee3b305-7e8e-4c1e-bd46-8f83f462b506&quot;,
@@ -1111,7 +1111,7 @@
 <tr>
 <th>Campo</th>
 <th>Tipo</th>
-<th>Obrigatorio</th>
+<th>Obrigatório</th>
 <th>Descrição</th>
 </tr>
 </thead>

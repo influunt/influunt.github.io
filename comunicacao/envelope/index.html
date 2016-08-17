@@ -79,7 +79,7 @@
         
             <ul>
             
-                <li class="toctree-l3"><a href="#envolpagem-das-mensagens">Envolpagem das Mensagens</a></li>
+                <li class="toctree-l3"><a href="#envelopagem-das-mensagens">Envelopagem das Mensagens</a></li>
                 
                     <li><a class="toctree-l4" href="#envelope-padrao">Envelope Padrão</a></li>
                 
@@ -185,8 +185,8 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="envolpagem-das-mensagens">Envolpagem das Mensagens</h1>
-<p>Todas as mensagens trafegadas na aplicação devem ser envolapadas conforme as definições desse documento.</p>
+                <h1 id="envelopagem-das-mensagens">Envelopagem das Mensagens</h1>
+<p>Todas as mensagens trafegadas na aplicação devem ser envelopadas conforme as definições desse documento.</p>
 <h2 id="envelope-padrao">Envelope Padrão</h2>
 <p>O envelope é um padrão JSON que contém informações básicas de rastreamento da mensagem, bem como o próprio contedo da mesma. Uma mensagem sempre tem como origem ou destino um controlador específico. Dessa forma, no envelope deve conter sempre o id do controlador.</p>
 <p>Os seguintes campos são obrigatórios no envelope:</p>
@@ -203,7 +203,7 @@
 <tr>
 <td>tipoMensagem</td>
 <td>string</td>
-<td>Código único que identifica o tipo de mensagem que está dentro do envelope. As mensagen que podem ser envelopadas estao definidas na seção <a href="comunicacao/mensagens.md">mensagens</a></td>
+<td>Código único que identifica o tipo de mensagem que está dentro do envelope. As mensagens que podem ser envelopadas estao definidas na seção <a href="comunicacao/mensagens.md">mensagens</a></td>
 </tr>
 <tr>
 <td>idControlador</td>
@@ -233,7 +233,7 @@
 <tr>
 <td>conteudo</td>
 <td>Objeto JSON ou String Criptografada representado um Objeto JSON</td>
-<td>Mensagem a ser entregue pelo envelope. Pode ser direntamente o objeto JSON, ou nos casos onde seja requirido o criptografado e convertido para BASE64</td>
+<td>Mensagem a ser entregue pelo envelope. Pode ser diretamente o objeto JSON, ou nos casos onde seja requerido criptografado e convertido para BASE64</td>
 </tr>
 <tr>
 <td>emResposta</td>

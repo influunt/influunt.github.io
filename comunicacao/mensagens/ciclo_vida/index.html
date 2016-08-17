@@ -196,11 +196,11 @@
             <div class="section">
               
                 <h1 id="ciclo-de-vida-do-controlador">Ciclo de Vida do Controlador</h1>
-<p>O ciclo de vida do controlador define quais em quais estados um controlador pode estar em um devido momento, bem como as possíveis transições entre esses estados. Toda vez que o controlador mudar de staus a central deve ser notificada. A central também pode impor mudanças nos status do controlador.</p>
+<p>O ciclo de vida do controlador define em quais estados um controlador pode estar em um devido momento, bem como as possíveis transições entre esses estados. Toda vez que o controlador mudar de status a central deve ser notificada. A central também pode impor mudanças nos status do controlador.</p>
 <p>A seguir é apresentado o diagrama de estados do controlador:</p>
 <p><img alt="CONTROLADOR_ONLINE" src="../../../img/estados.png" /></p>
 <h2 id="status">Status</h2>
-<p>A tabela abaixo apresentado o significado de cada estado:</p>
+<p>A tabela abaixo apresenta o significado de cada estado:</p>
 <table>
 <thead>
 <tr>
@@ -227,7 +227,7 @@
 </tr>
 <tr>
 <td>INATIVO</td>
-<td>O controlador foi inativado. Só será ativado novamente se um comando de ativação dor dado por um operador</td>
+<td>O controlador foi inativado. Só será ativado novamente se um comando de ativação for dado por um operador</td>
 </tr>
 <tr>
 <td>OPERANDO_COM_FALHAS</td>
@@ -264,7 +264,7 @@
 <td>CONFIGURADO</td>
 <td>CONFIGURACAO INICIAL</td>
 <td>A</td>
-<td>O controlador recebeu da central sua configuração inicial e esta pronto para entrar em operação</td>
+<td>O controlador recebeu da central sua configuração inicial e está pronto para entrar em operação</td>
 </tr>
 <tr>
 <td>CONFIGURADO, EM MANUTENCAO, INATIVO</td>
@@ -305,7 +305,7 @@
 <td>ATIVO, EM MANUTENCAO, OPERANDO COM FALHAS, INOPERANTE, CONFIGURADO</td>
 <td>INATIVO</td>
 <td>INATIVAR</td>
-<td>A</td>
+<td>M</td>
 <td>O operador enviou comando para inativar o controlador</td>
 </tr>
 </tbody>
@@ -314,45 +314,45 @@
 <p><img alt="CONFIGURACAO_CONTROLADOR_CENTRAL" src="../../../img/CONFIGURACAO_CONTROLADOR_CENTRAL.png" /></p>
 <h2 id="mensagem-do-ciclo-de-vida-central-controlador">Mensagem do Ciclo de Vida: Central / Controlador</h2>
 <p><img alt="CONFIGURACAO_CENTRAL_CONTROLADOR" src="../../../img/CONFIGURACAO_CENTRAL_CONTROLADOR.png" /></p>
-<h3 id="configuracao-incial">CONFIGURACAO INCIAL</h3>
-<p>Quando um controlador com status NOVO conectar com a internet ele deve solicitar a central sua configuração. Para isso deve enviar a mensagem CONFIGURACAO_INICIAL <a href="#CONFIGURACAO_INICIAL">CONFIGURACAO_INICIAL</a> para o tópico<a href="../comunicao/topicos#central_echo">/central/configuracao</a>.</p>
+<h3 id="configuracao-incial">CONFIGURAÇÃO INCIAL</h3>
+<p>Quando um controlador com status NOVO conectar com a internet ele deve solicitar à central sua configuração. Para isso deve enviar a mensagem CONFIGURACAO_INICIAL <a href="#CONFIGURACAO_INICIAL">CONFIGURACAO_INICIAL</a> para o tópico<a href="../comunicao/topicos#central_echo">/central/configuracao</a>.</p>
 <table>
 <thead>
 <tr>
 <th>Campo</th>
 <th>Tipo</th>
-<th>Obrigatorio</th>
+<th>Obrigatório</th>
 </tr>
 </thead>
 <tbody></tbody>
 </table>
 <pre><code class="JSON"></code></pre>
 
-<h3 id="configuracao">CONFIGURACAO</h3>
-<p>Essa mensagem contém todas as configurações necessárias para a operação de um controlador. Pode ser enviada como resposta a mensagem [CONFIGURACAO_INICIAL] ou quando o controlador está no estado EM_MANUTENÇÃO para atualizar sua configuração.</p>
-<p>Acesse aqui a especificação completada da mensagem de <a href="../configuracao">CONFIGURACAO</a></p>
+<h3 id="configuracao">CONFIGURAÇAO</h3>
+<p>Essa mensagem contém todas as configurações necessárias para a operação de um controlador. Pode ser enviada como resposta à mensagem [CONFIGURACAO_INICIAL] ou quando o controlador está no estado EM_MANUTENÇÃO para atualizar sua configuração.</p>
+<p>Acesse aqui a especificação completa da mensagem de <a href="../configuracao">CONFIGURACAO</a></p>
 <h3 id="ativar">ATIVAR</h3>
-<p>Mensagem enviada para colocar o controlador no modo de operação ATIVO. Pode ser enviada manualmente pelo operador para tirar o controlador dos estados de INATIVO e EM_MANUTENCAO, ou pelo próprio controlador ao se recuperar de uma falaha.</p>
+<p>Mensagem enviada para colocar o controlador no modo de operação ATIVO. Pode ser enviada manualmente pelo operador para tirar o controlador dos estados de INATIVO e EM_MANUTENCAO, ou pelo próprio controlador ao se recuperar de uma falha.</p>
 <table>
 <thead>
 <tr>
 <th>Campo</th>
 <th>Tipo</th>
-<th>Obrigatorio</th>
+<th>Obrigatório</th>
 </tr>
 </thead>
 <tbody></tbody>
 </table>
 <pre><code class="JSON"></code></pre>
 
-<h3 id="colocar-em-manutencao">COLOCAR EM MANUTENCAO</h3>
-<p>O operador pode enviar a mensagem COLOCAR_EM_MANUTENCAO para realizar manutenções programadas ou de excessão em um controlador.</p>
+<h3 id="colocar-em-manutencao">COLOCAR EM MANUTENÇÃO</h3>
+<p>O operador pode enviar a mensagem COLOCAR_EM_MANUTENCAO para realizar manutenções programadas ou de exceção em um controlador.</p>
 <table>
 <thead>
 <tr>
 <th>Campo</th>
 <th>Tipo</th>
-<th>Obrigatorio</th>
+<th>Obrigatório</th>
 </tr>
 </thead>
 <tbody></tbody>
@@ -366,7 +366,7 @@
 <tr>
 <th>Campo</th>
 <th>Tipo</th>
-<th>Obrigatorio</th>
+<th>Obrigatório</th>
 </tr>
 </thead>
 <tbody></tbody>
@@ -380,7 +380,7 @@
 <tr>
 <th>Campo</th>
 <th>Tipo</th>
-<th>Obrigatorio</th>
+<th>Obrigatório</th>
 </tr>
 </thead>
 <tbody></tbody>
@@ -394,7 +394,7 @@
 <tr>
 <th>Campo</th>
 <th>Tipo</th>
-<th>Obrigatorio</th>
+<th>Obrigatório</th>
 </tr>
 </thead>
 <tbody></tbody>

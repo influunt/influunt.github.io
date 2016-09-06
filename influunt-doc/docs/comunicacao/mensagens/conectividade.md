@@ -14,14 +14,12 @@ que ele pode receber comandos remotos. A figura abaixo abaixo apresenta o diagra
 
 ### Especificação da Mensagem
 | Campo| Tipo | Obrigatório| Descrição |
-| ------------ | ------------- | ------------ |
-| idControlador | String GUUID | Identificador do Controlador |
-| dataHora | Número Longo | SIM|  Carimbo de tempo referente ao momento de criacao da mensagem. Deve estar no formato milisegundo desde 1 de janeiro de 1970|
+| ------------ | ------------- | ------------ | ------------ |
 | versao72c | String | SIM|  Versão do 72c|
+| status | String | SIM|  Status do Controlador|
 
 ```JSON
 {
-  'dataHora':'1471272798600',
   'versao72c': '1.0.0',
   'status' : 'ver tabela de status'
 }
@@ -36,15 +34,8 @@ Ao se conectar o controlador deve publicar a mensagem de testamento [CONTROLADOR
 
 ### Especificação da Mensagem
 | Campo| Tipo | Obrigatório| Descrição |
-| ------------ | ------------- | ------------ |
-| idControlador | String GUUID | Identificador do Controlador |
-| dataHora | Número Longo | SIM|  Carimbo de tempo referente ao momento de criacao da mensagem. Deve estar no formato milisegundo desde 1 de janeiro de 1970|
+| ------------ | ------------- | ------------ | ------------ |
 
-```JSON
-{
-  'dataHora':'1471272798600'
-}
-```
 
 ## Echo
 A mensagem [ECHO](#ECHO) serve tanto para a central verificar se um controlador está respondendo a comandos quanto para um controlador consultar se a central está ativa. O comando [ECHO](#ECHO) deve devolver exatamente a mensagem que foi enviada. 

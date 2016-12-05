@@ -72,7 +72,7 @@
         
             <ul>
             
-                <li class="toctree-l3"><a href="#introducao-a-comunicacao-entre-a-central-e-os-controladores">Introdução à Comunicação entre a Central e os Controladores</a></li>
+                <li class="toctree-l3"><a href="#introducao-a-comunicacao-entre-a-central-e-os-controladores">Introdução a Comunicação entre a Central e os Controladores</a></li>
                 
             
             </ul>
@@ -88,48 +88,63 @@
 
         
             
+    <li class="toctree-l1 ">
+        <a class="" href="../seguranca/">Segurança</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
     <ul class="subnav">
-    <li><span>Mensagens</span></li>
+    <li><span>Protocolos</span></li>
+
+        
+            
+    <ul class="subnav">
+    <li><span>Alto Nível</span></li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../mensagens/conectividade/">Conectividade</a>
+        <a class="" href="../../protocolos/alto_nivel/introducao/">Introdução</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../mensagens/ciclo_vida/">Ciclo de Vida</a>
+        <a class="" href="../../protocolos/alto_nivel/conectividade/">Conectividade</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../mensagens/configuracao/">Configuração de um Controlador</a>
+        <a class="" href="../../protocolos/alto_nivel/ciclo_vida/">Ciclo de Vida</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../mensagens/planos/">Planos e Tabela Horária</a>
+        <a class="" href="../../protocolos/alto_nivel/configuracao/">Configuração do Controlador</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../mensagens/status/">Telemetria e Status</a>
+        <a class="" href="../../protocolos/alto_nivel/transacoes/">Transações</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../mensagens/simulacao/">Simulação</a>
+        <a class="" href="../../protocolos/alto_nivel/alertas_e_falhas/">Alertas e Falhas</a>
         
     </li>
 
@@ -138,10 +153,18 @@
 
         
             
+    <ul class="subnav">
+    <li><span>Baixo Nível</span></li>
+
+        
+            
     <li class="toctree-l1 ">
-        <a class="" href="../seguranca/">Segurança</a>
+        <a class="" href="../../protocolos/baixo_nivel/introducao/">Introdução</a>
         
     </li>
+
+        
+    </ul>
 
         
     </ul>
@@ -183,12 +206,12 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="introducao-a-comunicacao-entre-a-central-e-os-controladores">Introdução à Comunicação entre a Central e os Controladores</h1>
+                <h1 id="introducao-a-comunicacao-entre-a-central-e-os-controladores">Introdução a Comunicação entre a Central e os Controladores</h1>
 <p>Toda a comunicação entre a central e os controladores (e vice-versa) acontece de forma assíncrona utilizando o protocolo 
 aberto <a href="http://mqtt.org">MQTT</a>. O protocolo <a href="http://mqtt.org">MQTT</a> provê um mecanismo de comunicação para redes de baixa 
 confiabilidade utilizado mensagens assíncronas no padrão <a href="https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern">publish/subscribe</a>.</p>
 <p>Todas as mensagens trafegadas entre a central e os controladores são serializadas no formato <a href="http://json.org">JSON</a> e envelopadas de acordo com as 
-regras definidas no <a href="../../comunicacao/envelope">padrão de envelopagem</a>.</p>
+regras definidas no <a href="../../comunicacao/envelope">padrão de envelopagem</a>. Esse envelope então é criptografado transformando-se em um <a href="../../comunicacao/seguro">envelope seguro</a>.</p>
               
             </div>
           </div>

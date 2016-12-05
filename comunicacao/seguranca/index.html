@@ -81,48 +81,84 @@
 
         
             
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Segurança</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#mantendo-a-seguranca-na-comunicacao">Mantendo a Segurança na Comunicação</a></li>
+                
+                    <li><a class="toctree-l4" href="#confiabilidade">Confiabilidade</a></li>
+                
+                    <li><a class="toctree-l4" href="#autenticidade">Autenticidade</a></li>
+                
+                    <li><a class="toctree-l4" href="#integridade">Integridade</a></li>
+                
+                    <li><a class="toctree-l4" href="#envelope-seguro">Envelope Seguro</a></li>
+                
+                    <li><a class="toctree-l4" href="#criptogrando-um-envelope">Criptogrando um envelope</a></li>
+                
+                    <li><a class="toctree-l4" href="#descriptogrando-um-envelope">Descriptogrando um envelope</a></li>
+                
+                    <li><a class="toctree-l4" href="#especificacoes-das-chaves-e-algoritmos-de-criptografia">Especificações das chaves e algoritmos de criptografia</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
     <ul class="subnav">
-    <li><span>Mensagens</span></li>
+    <li><span>Protocolos</span></li>
+
+        
+            
+    <ul class="subnav">
+    <li><span>Alto Nível</span></li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../mensagens/conectividade/">Conectividade</a>
+        <a class="" href="../../protocolos/alto_nivel/introducao/">Introdução</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../mensagens/ciclo_vida/">Ciclo de Vida</a>
+        <a class="" href="../../protocolos/alto_nivel/conectividade/">Conectividade</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../mensagens/configuracao/">Configuração de um Controlador</a>
+        <a class="" href="../../protocolos/alto_nivel/ciclo_vida/">Ciclo de Vida</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../mensagens/planos/">Planos e Tabela Horária</a>
+        <a class="" href="../../protocolos/alto_nivel/configuracao/">Configuração do Controlador</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../mensagens/status/">Telemetria e Status</a>
+        <a class="" href="../../protocolos/alto_nivel/transacoes/">Transações</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../mensagens/simulacao/">Simulação</a>
+        <a class="" href="../../protocolos/alto_nivel/alertas_e_falhas/">Alertas e Falhas</a>
         
     </li>
 
@@ -131,23 +167,18 @@
 
         
             
-    <li class="toctree-l1 current">
-        <a class="current" href="./">Segurança</a>
+    <ul class="subnav">
+    <li><span>Baixo Nível</span></li>
+
         
-            <ul>
             
-                <li class="toctree-l3"><a href="#mantendo-a-seguranca-na-comunicacao">Mantendo a Segurança na Comunicação</a></li>
-                
-                    <li><a class="toctree-l4" href="#autenticacao">Autenticação</a></li>
-                
-                    <li><a class="toctree-l4" href="#autenticidade">Autenticidade</a></li>
-                
-                    <li><a class="toctree-l4" href="#integridade">Integridade</a></li>
-                
-            
-            </ul>
+    <li class="toctree-l1 ">
+        <a class="" href="../../protocolos/baixo_nivel/introducao/">Introdução</a>
         
     </li>
+
+        
+    </ul>
 
         
     </ul>
@@ -190,9 +221,81 @@
             <div class="section">
               
                 <h1 id="mantendo-a-seguranca-na-comunicacao">Mantendo a Segurança na Comunicação</h1>
-<h2 id="autenticacao">Autenticação</h2>
-<h2 id="autenticidade">Autenticidade</h2>
-<h2 id="integridade">Integridade</h2>
+<p>Toda a comunicação entre os controladores e a central é criptografada. Para isso são usadas dois pares de chaves assimétricas por controlador. Um par na central e o outro no controlador.</p>
+<p>Cada mensagem é criptografada com uma chave simétrica que é criptografada pela chave privada assimétrica. </p>
+<p>As chaves assimétricas são geradas automaticamente no cadastro da controlador na central. Cada controlador deve conhecer sua chave privada e a chave pública da central. As chaves simétricas devem ser geradas a cada nova mensagem trafegada.</p>
+<p>Dessa forma, toda a mensagem recebida no controlador deve ser descriptografada com a chave assímetrica após essa ser descriptografada pela chave privada assimétrica. O mesmo acontece no sentido contrário, ou seja, quando uma mensagem é recebida no controlador.</p>
+<p>O esquema de segurança adotado pela central garante:</p>
+<h3 id="confiabilidade">Confiabilidade</h3>
+<p>Todas as informações são trafegadas criptografadas.</p>
+<h3 id="autenticidade">Autenticidade</h3>
+<p>A comunicação controlador/central e central/controlador utiliza chaves exclusivas. Dessa forma, não é possível um controlador se passar por outro controlador ao se comunicar com a central e também não é possível que uma outra central se comunique com um controlador que não seja de sua propriedade.</p>
+<h3 id="integridade">Integridade</h3>
+<p>Como a conteúdo é criptografado, qualquer alteração fará que a mensagem não consiga ser aberta.</p>
+<h2 id="envelope-seguro">Envelope Seguro</h2>
+<p>Toda a comunicação em ambos os sentidos deve ser empacotada em um envolope seguro. O evelope seguro contém 3 campos: a senha, o conteúdo e o id do controlador. A seguir um exemplo de um envelope seguro:</p>
+<pre><code class="JSON">{
+  key=469caede37e5336f...adb131458c3, 
+  idControlador=1d473b41-7136-4b1d-a077-3dc17828c225, 
+  content=f09138a8a9113e57c30994221cb6ed...671ad94f9870d97a69cf41c3c1105189
+} 
+</code></pre>
+
+<table>
+<thead>
+<tr>
+<th>Campo</th>
+<th>Tipo</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>key</td>
+<td>string</td>
+<td>Chave simétrica a ser usada para descriptografar os dados do campo conteúdo. Essa chave deve ser descriptogrfada com a chave privada de quem a recebeu</td>
+</tr>
+<tr>
+<td>idControlador</td>
+<td>String GUUID</td>
+<td>Identificador do Controlador</td>
+</tr>
+<tr>
+<td>content</td>
+<td>String</td>
+<td>Um <a href="../../comunicacao/envelope">envelope</a> que foi criptografado com a chave do campo key</td>
+</tr>
+</tbody>
+</table>
+<h2 id="criptogrando-um-envelope">Criptogrando um envelope</h2>
+<p>Antes de enviar uma mensagem o envelope deve ser criptografado. Os passos são os seguintes:</p>
+<ol>
+<li>Obtem-se o json do envelope</li>
+<li>Gera-se uma nova chave simétrica</li>
+<li>Criptografa-se o json do envelope com a chave simétrica</li>
+<li>Converte-se os bytes resultantes da criptografia em uma string de hexadecimais</li>
+<li>Adiciona-se a string ao campo content do novo json (envelope seguro)</li>
+<li>Criptograda-se a chave simétrica com a chave pública do destinatário.</li>
+<li>Converte-se os bytes resultantes da criptografia em uma string de hexadecimais</li>
+<li>Adiciona-se a string ao campo key do novo json (envelope seguro)</li>
+<li>Adiciona-se o id do controlador no campo idControlador</li>
+</ol>
+<p>O envelope está seguro é pode ser enviado ao destinatário seja ele a central ou um controlador específico.</p>
+<h2 id="descriptogrando-um-envelope">Descriptogrando um envelope</h2>
+<ol>
+<li>Obtem-se o json do envelope seguro</li>
+<li>Converte-se o campo key em um array de bytes</li>
+<li>Discriptografa-se o campo key do envelope seguro com a chave privado do destinatário</li>
+<li>Converte-se o campo contente um um array de bytes</li>
+<li>Utiliza-se a chave para discriptografar o campo content do envelope seguro</li>
+<li>O resultado conterá o envelope descriptografado com os dados que foram enviados</li>
+</ol>
+<p>O envelope recebido é confiável e pode ser processado.</p>
+<h2 id="especificacoes-das-chaves-e-algoritmos-de-criptografia">Especificações das chaves e algoritmos de criptografia</h2>
+<h3 id="chaves-assimetricas">Chaves Assimétricas</h3>
+<p>Devem ser utilizadas chaves RSA de 1024 bits.</p>
+<h3 id="chaves-simetricas">Chaves Simétricas</h3>
+<p>Devem ser utilizadas chaves AES de 128 bits.</p>
               
             </div>
           </div>
@@ -200,8 +303,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
+        <a href="../../protocolos/alto_nivel/introducao/" class="btn btn-neutral float-right" title="Introdução">Next <span class="icon icon-circle-arrow-right"></span></a>
       
-        <a href="../mensagens/simulacao/" class="btn btn-neutral" title="Simulação"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+        <a href="../envelope/" class="btn btn-neutral" title="Envelope"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -227,8 +332,10 @@
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../mensagens/simulacao/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../envelope/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
+      
+        <span style="margin-left: 15px"><a href="../../protocolos/alto_nivel/introducao/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

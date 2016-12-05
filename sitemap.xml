@@ -4,7 +4,7 @@
     
     <url>
      <loc>None/</loc>
-     <lastmod>2016-08-17</lastmod>
+     <lastmod>2016-12-05</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -13,15 +13,25 @@
         
     <url>
      <loc>None/comunicacao/introducao/</loc>
-     <lastmod>2016-08-17</lastmod>
+     <lastmod>2016-12-05</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/comunicacao/envelope/</loc>
-     <lastmod>2016-08-17</lastmod>
+     <lastmod>2016-12-05</lastmod>
      <changefreq>daily</changefreq>
     </url>
+        
+    <url>
+     <loc>None/comunicacao/seguranca/</loc>
+     <lastmod>2016-12-05</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
         
     <url>
      <loc>None</loc>
@@ -30,8 +40,8 @@
     </url>
         
     <url>
-     <loc>None/comunicacao/seguranca/</loc>
-     <lastmod>2016-08-17</lastmod>
+     <loc>None</loc>
+     <lastmod></lastmod>
      <changefreq>daily</changefreq>
     </url>
         

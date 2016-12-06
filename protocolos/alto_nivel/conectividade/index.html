@@ -115,9 +115,9 @@
             
                 <li class="toctree-l3"><a href="#mantendo-a-conectividade-entre-os-controladores-e-a-central">Mantendo a Conectividade Entre os Controladores e a Central</a></li>
                 
-                    <li><a class="toctree-l4" href="#controlador-on-line">Controlador On-line</a></li>
+                    <li><a class="toctree-l4" href="#controlador-online">Controlador Online</a></li>
                 
-                    <li><a class="toctree-l4" href="#controlador-off-line">Controlador Off-line</a></li>
+                    <li><a class="toctree-l4" href="#controlador-offline">Controlador Offline</a></li>
                 
                     <li><a class="toctree-l4" href="#echo">Echo</a></li>
                 
@@ -219,39 +219,17 @@
                 <h1 id="mantendo-a-conectividade-entre-os-controladores-e-a-central">Mantendo a Conectividade Entre os Controladores e a Central</h1>
 <p>Todo controlador deve manter a central informada dos momentos em que ele está conectado e em que perde conexão com a internet.</p>
 <p>Para isso, ao se conectar deve enviar a mensagem <a href="#CONTROLADOR_ONLINE">CONTROLADOR_ONLINE</a> e deixar como testamento a mensagem <a href="#CONTROLADOR_OFFLINE">CONTROLADOR_OFFLINE</a>.
-Um controaldor pode testar a conectividade com a central atraves do comando <a href="#ECHO">ECHO</a>, a central pode fazer o mesmo com qualquer
+Um controlador pode testar a conectividade com a central através do comando <a href="#ECHO">ECHO</a>. A central pode fazer o mesmo com qualquer
 controlador.</p>
-<h2 id="controlador-on-line">Controlador On-line</h2>
-<p>Ao se conectar o controlador deve publicar a mensagem <a href="#CONTROLADOR_ONLINE">CONTROLADOR_ONLINE</a> no tópico <a href="../comunicao/topicos#controladores_conn_online">/controladores/conn/online</a> para avisar a central 
-que ele pode receber comando comandos remotos. A figura abaixo abaixo apresenta o diagrama de comunicação para essa mensagem:</p>
-<p><img alt="CONTROLADOR_ONLINE" src="../../../img/CONTROLADOR_ONLINE.PNG" /></p>
+<h2 id="controlador-online">Controlador Online</h2>
+<p>Ao se conectar, o controlador deve publicar a mensagem <a href="#CONTROLADOR_ONLINE">CONTROLADOR_ONLINE</a> no tópico <a href="../comunicao/topicos#controladores_conn_online">/controladores/conn/online</a> para avisar à central 
+que ele pode receber comandos remotos. A figura abaixo abaixo apresenta o diagrama de comunicação para essa mensagem:</p>
+<p><img alt="CONTROLADOR_ONLINE" src="../../../img/CONTROLADOR_ONLINE.png" /></p>
 <h3 id="especificacao-da-mensagem">Especificação da Mensagem</h3>
-<table>
-<thead>
-<tr>
-<th>Campo</th>
-<th>Tipo</th>
-<th>Obrigatorio</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>idControlador</td>
-<td>String GUUID</td>
-<td>Identificador do Controlador</td>
-</tr>
-<tr>
-<td>dataHora</td>
-<td>Número Longo</td>
-<td>SIM</td>
-</tr>
-<tr>
-<td>versao72c</td>
-<td>String</td>
-<td>SIM</td>
-</tr>
-</tbody>
-</table>
+<p>| Campo| Tipo | Obrigatório| Descrição |
+| idControlador | Texto <a href="https://en.wikipedia.org/wiki/Universally_unique_identifier">UUID</a> | SIM | Identificador do Controlador |
+| dataHora | Número Longo | SIM|  Carimbo de tempo referente ao momento de criacao da mensagem. Deve estar no formato milissegundo desde 1 de janeiro de 1970|
+| versao72c | Texto | SIM|  Versão do 72c|</p>
 <pre><code class="JSON">{
   'dataHora':'1471272798600',
   'versao72c': '1.0.0',
@@ -259,40 +237,22 @@ que ele pode receber comando comandos remotos. A figura abaixo abaixo apresenta 
 }
 </code></pre>
 
-<h2 id="controlador-off-line">Controlador Off-line</h2>
-<p>Ao se conectar o controlador deve publicar a mensagem de testamento <a href="#CONTROLADOR_OFFLINE">CONTROLADOR_OFFLINE</a> que será entregue automaticamente quando ele perder conexão com o broker MQTT. Essa mensagem deve ser publicada no tópico <a href="../comunicao/topicos#controladores_conn_offline">/controladores/conn/offline</a>. A figura abaixo abaixo apresenta o diagrama de comunicação para essa mensagem:</p>
-<p><img alt="CONTROLADOR_ONLINE" src="../../../img/CONTROLADOR_OFFLINE.PNG" /></p>
+<h2 id="controlador-offline">Controlador Offline</h2>
+<p>Ao se conectar, o controlador deve publicar a mensagem de testamento <a href="#CONTROLADOR_OFFLINE">CONTROLADOR_OFFLINE</a> que será entregue automaticamente quando ele perder conexão com o <em>broker MQTT</em>. Essa mensagem deve ser publicada no tópico <a href="../comunicao/topicos#controladores_conn_offline">/controladores/conn/offline</a>. A figura abaixo apresenta o diagrama de comunicação para essa mensagem:</p>
+<p><img alt="CONTROLADOR_OFFLINE" src="../../../img/CONTROLADOR_OFFLINE.png" /></p>
 <h3 id="especificacao-da-mensagem_1">Especificação da Mensagem</h3>
-<table>
-<thead>
-<tr>
-<th>Campo</th>
-<th>Tipo</th>
-<th>Obrigatorio</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>idControlador</td>
-<td>String GUUID</td>
-<td>Identificador do Controlador</td>
-</tr>
-<tr>
-<td>dataHora</td>
-<td>Número Longo</td>
-<td>SIM</td>
-</tr>
-</tbody>
-</table>
+<p>| Campo| Tipo | Obrigatório| Descrição |
+| idControlador | Texto <em>UUID</em>|SIM | Identificador do Controlador |
+| dataHora | Número Longo | SIM|  Carimbo de tempo referente ao momento de criacao da mensagem. Deve estar no formato milissegundo desde 1 de janeiro de 1970|</p>
 <pre><code class="JSON">{
   'dataHora':'1471272798600'
 }
 </code></pre>
 
 <h2 id="echo">Echo</h2>
-<p>A mensagem <a href="#ECHO">ECHO</a> serve tanto para a central verificar se um controlador está respondendo a comandos quando para um controlador consultar se a central está ativa. O comando <a href="#ECHO">ECHO</a> deve devolver exatamente a mensagem que foi enviada. </p>
-<p>Quando a central desejar testar um controlador ela deve enviar a mensagem ECHO para tópico <a href="../comunicao/topicos#controlador_echo">/controlador/<ID>/echo/<ID-ECHO></a>, onde <ID> é o identificador do controlador que responderá a mensagem e ID-ECHO é o identificador do comando de ECHO. O controlador deve reposponder a mensagem no tópico <a href="../comunicao/topicos#central_echo">/central/echo/<ID-ECHO></a>, onde <ID-ECHO> é o mesmo ID informado pela central para a mensagem de ECHO.</p>
-<p>Quando o controlador desejar testar a central, ele deve enviar a mensagem ECHO para tópico <a href="../comunicao/topicos#central_echo">/central/echo/<ID-ECHO></a>, onde <ID-ECHO> é o identificador do comando de ECHO. A central irá responder com o comando ECHO no tópico <a href="../comunicao/topicos#controlador_echo">/controlador/<ID>/echo/<ID-ECHO></a>, onde <ID> é o identificador do controlador que envio o comando ECHO e <ID-ECHO> é o mesmo ID informado pela central para a mensagem de ECHO.</p>
+<p>A mensagem <a href="#ECHO">ECHO</a> serve tanto para a central verificar se um controlador está respondendo a comandos quanto para um controlador consultar se a central está ativa. O comando <a href="#ECHO">ECHO</a> deve devolver exatamente a mensagem que foi enviada. </p>
+<p>Quando a central desejar testar um controlador, deverá enviar a mensagem ECHO para o tópico <a href="../comunicao/topicos#controlador_echo">/controlador/\&lt;ID>/echo/\&lt;ID-ECHO></a>, onde \&lt;ID> é o identificador do controlador que responderá a mensagem e ID-ECHO é o identificador do comando de ECHO. O controlador deve reposponder a mensagem no tópico <a href="../comunicao/topicos#central_echo">/central/echo/\&lt;ID-ECHO></a>, onde \&lt;ID-ECHO> é o mesmo ID informado pela central para a mensagem de ECHO.</p>
+<p>Quando o controlador desejar testar a central, deverá enviar a mensagem ECHO para o tópico <a href="../comunicao/topicos#central_echo">/central/echo/\&lt;ID-ECHO></a>, onde \&lt;ID-ECHO> é o identificador do comando de ECHO. A central irá responder com o comando ECHO no tópico <a href="../comunicao/topicos#controlador_echo">/controlador/\&lt;ID>/echo/\&lt;ID-ECHO></a>, onde \&lt;ID> é o identificador do controlador que envio o comando ECHO e \&lt;ID-ECHO> é o mesmo ID informado pela central para a mensagem de ECHO.</p>
 <p><img alt="CONTROLADOR_ONLINE" src="../../../img/ECHO.png" /></p>
               
             </div>

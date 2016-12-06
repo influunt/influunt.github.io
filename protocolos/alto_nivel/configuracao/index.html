@@ -133,7 +133,7 @@
                 
                     <li><a class="toctree-l4" href="#anel">Anel</a></li>
                 
-                    <li><a class="toctree-l4" href="#grupo-semaforico">Grupo Semáforico</a></li>
+                    <li><a class="toctree-l4" href="#grupo-semaforico">Grupo Semafórico</a></li>
                 
                     <li><a class="toctree-l4" href="#estagio">Estágio</a></li>
                 
@@ -167,9 +167,7 @@
                 
                     <li><a class="toctree-l4" href="#evento">Evento</a></li>
                 
-                    <li><a class="toctree-l4" href="#atraso-grupo">Atraso Grupo</a></li>
-                
-                    <li><a class="toctree-l4" href="#atraso-grupo_1">Atraso Grupo</a></li>
+                    <li><a class="toctree-l4" href="#atraso-de-grupo">Atraso de Grupo</a></li>
                 
                     <li><a class="toctree-l4" href="#exemplo-completo">Exemplo Completo</a></li>
                 
@@ -255,7 +253,7 @@
             <div class="section">
               
                 <h1 id="introducao">Introdução</h1>
-<p>A estrutura do controlador é definida pelo objeto <a href="#controlador">CONTROLADOR</a> que inclui seus dados básicos e listas de objetos associados. Para evitar referências cruzadas e problemas de navegação no grafo de objetos, adotou-se uma estratura de JSON desnormatizada. Sendo assim, todos os objetos são escritos diretamente na raiz do controlador e não internamente de forma hierárquica. Em compensação os objetos internos trazem referências para os objetos externos.</p>
+<p>A estrutura do controlador é definida pelo objeto <a href="#controlador">CONTROLADOR</a> que inclui seus dados básicos e listas de objetos associados. Para evitar referências cruzadas e problemas de navegação no grafo de objetos, adotou-se uma estratura de <em>JSON</em> desnormatizada. Sendo assim, todos os objetos são escritos diretamente na raiz do controlador e não internamente de forma hierárquica. Em compensação os objetos internos trazem referências para os objetos externos.</p>
 <p>A figura abaixo apresenta os objetos que fazem parte da configuração de um controlador. As setas representam referências entre esses objetos.</p>
 <p><img alt="Controlador" src="../../../img/controlador.png" /></p>
 <h2 id="controlador">Controlador</h2>
@@ -273,19 +271,19 @@
 <tbody>
 <tr>
 <td>id</td>
-<td>String GUUID</td>
+<td>Texto [UUID] (https://en.wikipedia.org/wiki/Universally_unique_identifier)</td>
 <td>S</td>
 <td>Identificador do Controlador</td>
 </tr>
 <tr>
 <td>numeroSMEE</td>
-<td>String</td>
+<td>Texto</td>
 <td>N</td>
 <td>Número SMEE do Controlador</td>
 </tr>
 <tr>
 <td>nomeEndereco</td>
-<td>String</td>
+<td>Texto</td>
 <td>N</td>
 <td>Descrição da localização do controlador</td>
 </tr>
@@ -303,7 +301,7 @@
 </tr>
 <tr>
 <td>CLC</td>
-<td>String</td>
+<td>Texto</td>
 <td>N</td>
 <td>Código de Localização do Controlador</td>
 </tr>
@@ -409,50 +407,260 @@
 <td>S</td>
 <td>Lista de eventos</td>
 </tr>
+<tr>
+<td>limiteEstagio</td>
+<td>Inteiro</td>
+<td>S</td>
+<td>utilizado para validação pelo 72c</td>
+</tr>
+<tr>
+<td>limiteGrupoSemaforico</td>
+<td>Inteiro</td>
+<td>S</td>
+<td>utilizado para validação pelo 72c</td>
+</tr>
+<tr>
+<td>limiteAnel</td>
+<td>Inteiro</td>
+<td>S</td>
+<td>utilizado para validação pelo 72c</td>
+</tr>
+<tr>
+<td>limiteDetectorPedestre</td>
+<td>Inteiro</td>
+<td>S</td>
+<td>utilizado para validação pelo 72c</td>
+</tr>
+<tr>
+<td>limiteDetectorVeicular</td>
+<td>Inteiro</td>
+<td>S</td>
+<td>utilizado para validação pelo 72c</td>
+</tr>
+<tr>
+<td>limiteTabelasEntreVerdes</td>
+<td>Inteiro</td>
+<td>S</td>
+<td>utilizado para validação pelo 72c</td>
+</tr>
+<tr>
+<td>limitePlanos</td>
+<td>Inteiro</td>
+<td>S</td>
+<td>utilizado para validação pelo 72c</td>
+</tr>
+<tr>
+<td>verdeMin</td>
+<td>Inteiro</td>
+<td>S</td>
+<td>utilizado para validação pelo 72c</td>
+</tr>
+<tr>
+<td>verdeMax</td>
+<td>Inteiro</td>
+<td>S</td>
+<td>utilizado para validação pelo 72c</td>
+</tr>
+<tr>
+<td>verdeMinimoMin</td>
+<td>Inteiro</td>
+<td>S</td>
+<td>utilizado para validação pelo 72c</td>
+</tr>
+<tr>
+<td>verdeMinimoMax</td>
+<td>Inteiro</td>
+<td>S</td>
+<td>utilizado para validação pelo 72c</td>
+</tr>
+<tr>
+<td>verdeMaximoMin</td>
+<td>Inteiro</td>
+<td>S</td>
+<td>utilizado para validação pelo 72c</td>
+</tr>
+<tr>
+<td>verdeMaximoMax</td>
+<td>Inteiro</td>
+<td>S</td>
+<td>utilizado para validação pelo 72c</td>
+</tr>
+<tr>
+<td>extensaoVerdeMin</td>
+<td>Inteiro</td>
+<td>S</td>
+<td>utilizado para validação pelo 72c</td>
+</tr>
+<tr>
+<td>extensaoVerdeMax</td>
+<td>Inteiro</td>
+<td>S</td>
+<td>utilizado para validação pelo 72c</td>
+</tr>
+<tr>
+<td>verdeIntermediarioMin</td>
+<td>Inteiro</td>
+<td>S</td>
+<td>utilizado para validação pelo 72c</td>
+</tr>
+<tr>
+<td>verdeIntermediarioMax</td>
+<td>Inteiro</td>
+<td>S</td>
+<td>utilizado para validação pelo 72c</td>
+</tr>
+<tr>
+<td>defasagemMin</td>
+<td>Inteiro</td>
+<td>S</td>
+<td>utilizado para validação pelo 72c</td>
+</tr>
+<tr>
+<td>defasagemMax</td>
+<td>Inteiro</td>
+<td>S</td>
+<td>utilizado para validação pelo 72c</td>
+</tr>
+<tr>
+<td>amareloMin</td>
+<td>Inteiro</td>
+<td>S</td>
+<td>utilizado para validação pelo 72c</td>
+</tr>
+<tr>
+<td>amareloMax</td>
+<td>Inteiro</td>
+<td>S</td>
+<td>utilizado para validação pelo 72c</td>
+</tr>
+<tr>
+<td>vermelhoIntermitenteMin</td>
+<td>Inteiro</td>
+<td>S</td>
+<td>utilizado para validação pelo 72c</td>
+</tr>
+<tr>
+<td>vermelhoIntermitenteMax</td>
+<td>Inteiro</td>
+<td>S</td>
+<td>utilizado para validação pelo 72c</td>
+</tr>
+<tr>
+<td>vermelhoLimpezaVeicularMin</td>
+<td>Inteiro</td>
+<td>S</td>
+<td>utilizado para validação pelo 72c</td>
+</tr>
+<tr>
+<td>vermelhoLimpezaVeicularMax</td>
+<td>Inteiro</td>
+<td>S</td>
+<td>utilizado para validação pelo 72c</td>
+</tr>
+<tr>
+<td>vermelhoLimpezaPedestreMin</td>
+<td>Inteiro</td>
+<td>S</td>
+<td>utilizado para validação pelo 72c</td>
+</tr>
+<tr>
+<td>vermelhoLimpezaPedestreMax</td>
+<td>Inteiro</td>
+<td>S</td>
+<td>utilizado para validação pelo 72c</td>
+</tr>
+<tr>
+<td>atrasoGrupoMin</td>
+<td>Inteiro</td>
+<td>S</td>
+<td>utilizado para validação pelo 72c</td>
+</tr>
+<tr>
+<td>atrasoGrupoMax</td>
+<td>Inteiro</td>
+<td>S</td>
+<td>utilizado para validação pelo 72c</td>
+</tr>
+<tr>
+<td>verdeSegurancaVeicularMin</td>
+<td>Inteiro</td>
+<td>S</td>
+<td>utilizado para validação pelo 72c</td>
+</tr>
+<tr>
+<td>verdeSegurancaVeicularMax</td>
+<td>Inteiro</td>
+<td>S</td>
+<td>utilizado para validação pelo 72c</td>
+</tr>
+<tr>
+<td>verdeSegurancaPedestreMin</td>
+<td>Inteiro</td>
+<td>S</td>
+<td>utilizado para validação pelo 72c</td>
+</tr>
+<tr>
+<td>verdeSegurancaPedestreMax</td>
+<td>Inteiro</td>
+<td>S</td>
+<td>utilizado para validação pelo 72c</td>
+</tr>
+<tr>
+<td>maximoPermanenciaEstagioMin</td>
+<td>Inteiro</td>
+<td>S</td>
+<td>utilizado para validação pelo 72c</td>
+</tr>
+<tr>
+<td>maximoPermanenciaEstagioMax</td>
+<td>Inteiro</td>
+<td>S</td>
+<td>utilizado para validação pelo 72c</td>
+</tr>
+<tr>
+<td>defaultMaximoPermanenciaEstagioVeicular</td>
+<td>Inteiro</td>
+<td>S</td>
+<td>utilizado para validação pelo 72c</td>
+</tr>
+<tr>
+<td>cicloMin</td>
+<td>Inteiro</td>
+<td>S</td>
+<td>utilizado para validação pelo 72c</td>
+</tr>
+<tr>
+<td>cicloMax</td>
+<td>Inteiro</td>
+<td>S</td>
+<td>utilizado para validação pelo 72c</td>
+</tr>
+<tr>
+<td>ausenciaDeteccaoMin</td>
+<td>Inteiro</td>
+<td>S</td>
+<td>utilizado para validação pelo 72c</td>
+</tr>
+<tr>
+<td>ausenciaDeteccaoMax</td>
+<td>Inteiro</td>
+<td>S</td>
+<td>utilizado para validação pelo 72c</td>
+</tr>
+<tr>
+<td>deteccaoPermanenteMin</td>
+<td>Inteiro</td>
+<td>S</td>
+<td>utilizado para validação pelo 72c</td>
+</tr>
+<tr>
+<td>deteccaoPermanenteMax</td>
+<td>Inteiro</td>
+<td>S</td>
+<td>utilizado para validação pelo 72c</td>
+</tr>
 </tbody>
 </table>
-<p>|limiteEstagio| Inteiro | S | utilizado para validação pelo 72c |
-|limiteGrupoSemaforico| Inteiro | S | utilizado para validação pelo 72c |
-|limiteAnel| Inteiro | S | utilizado para validação pelo 72c |
-|limiteDetectorPedestre| Inteiro | S | utilizado para validação pelo 72c |
-|limiteDetectorVeicular| Inteiro | S | utilizado para validação pelo 72c |
-|limiteTabelasEntreVerdes| Inteiro | S | utilizado para validação pelo 72c |
-|limitePlanos| Inteiro | S | utilizado para validação pelo 72c |
-|verdeMin| Inteiro | S | utilizado para validação pelo 72c |
-|verdeMax| Inteiro | S | utilizado para validação pelo 72c |
-|verdeMinimoMin| Inteiro | S | utilizado para validação pelo 72c |
-|verdeMinimoMax| Inteiro | S | utilizado para validação pelo 72c |
-|verdeMaximoMin| Inteiro | S | utilizado para validação pelo 72c |
-|verdeMaximoMax| Inteiro | S | utilizado para validação pelo 72c |
-|extensaoVerdeMin| Inteiro | S | utilizado para validação pelo 72c |
-|extensaoVerdeMax| Inteiro | S | utilizado para validação pelo 72c |
-|verdeIntermediarioMin| Inteiro | S | utilizado para validação pelo 72c |
-|verdeIntermediarioMax| Inteiro | S | utilizado para validação pelo 72c |
-|defasagemMin| Inteiro | S | utilizado para validação pelo 72c |
-|defasagemMax| Inteiro | S | utilizado para validação pelo 72c |
-|amareloMin| Inteiro | S | utilizado para validação pelo 72c |
-|amareloMax| Inteiro | S | utilizado para validação pelo 72c |
-|vermelhoIntermitenteMin| Inteiro | S | utilizado para validação pelo 72c |
-|vermelhoIntermitenteMax| Inteiro | S | utilizado para validação pelo 72c |
-|vermelhoLimpezaVeicularMin| Inteiro | S | utilizado para validação pelo 72c |
-|vermelhoLimpezaVeicularMax| Inteiro | S | utilizado para validação pelo 72c |
-|vermelhoLimpezaPedestreMin| Inteiro | S | utilizado para validação pelo 72c |
-|vermelhoLimpezaPedestreMax| Inteiro | S | utilizado para validação pelo 72c |
-|atrasoGrupoMin| Inteiro | S | utilizado para validação pelo 72c |
-|atrasoGrupoMax| Inteiro | S | utilizado para validação pelo 72c |
-|verdeSegurancaVeicularMin| Inteiro | S | utilizado para validação pelo 72c |
-|verdeSegurancaVeicularMax| Inteiro | S | utilizado para validação pelo 72c |
-|verdeSegurancaPedestreMin| Inteiro | S | utilizado para validação pelo 72c |
-|verdeSegurancaPedestreMax| Inteiro | S | utilizado para validação pelo 72c |
-|maximoPermanenciaEstagioMin| Inteiro | S | utilizado para validação pelo 72c |
-|maximoPermanenciaEstagioMax| Inteiro | S | utilizado para validação pelo 72c |
-|defaultMaximoPermanenciaEstagioVeicular| Inteiro | S | utilizado para validação pelo 72c |
-|cicloMin| Inteiro | S | utilizado para validação pelo 72c |
-|cicloMax| Inteiro | S | utilizado para validação pelo 72c |
-|ausenciaDeteccaoMin| Inteiro | S | utilizado para validação pelo 72c |
-|ausenciaDeteccaoMax| Inteiro | S | utilizado para validação pelo 72c |
-|deteccaoPermanenteMin| Inteiro | S | utilizado para validação pelo 72c |
-|deteccaoPermanenteMax| Inteiro | S | utilizado para validação pelo 72c |</p>
 <h3 id="exemplo-json">Exemplo JSON</h3>
 <pre><code class="JSON">{
   &quot;id&quot;: &quot;bdf5005e-9aa3-40a4-b0de-2e38a8aef48e&quot;,
@@ -520,7 +728,7 @@
 </code></pre>
 
 <h2 id="anel">Anel</h2>
-<p>Característica que permite a um controlador operar como se fossem vários controladores independentes. Cada anel é responsável pelo controle de certo número de grupos focais e a programação semafórica que ocorre nesses grupos focais é totalmente independente da programação semafórica dos demais grupos focais do controlador, a menos pelo tempo de ciclo, que tem de ser igual para o controlador e todos os seus anéis.</p>
+<p>Característica que permite a um controlador operar como se fossem vários controladores independentes. Cada anel é responsável pelo controle de certo número de grupos focais e a programação semafórica que ocorre nesses grupos focais é totalmente independente da programação semafórica dos demais grupos focais do controlador, exceto pelo tempo de ciclo, que tem de ser igual para o controlador e todos os seus anéis.</p>
 <h3 id="especificacao_1">Especificação</h3>
 <table>
 <thead>
@@ -534,25 +742,25 @@
 <tbody>
 <tr>
 <td>id</td>
-<td>String GUUID</td>
+<td>Texto <em>UUID</em></td>
 <td>S</td>
 <td>Identificador do Anel</td>
 </tr>
 <tr>
 <td>idJson</td>
-<td>String GUUID</td>
+<td>Texto <em>UUID</em></td>
 <td>S</td>
-<td>Identificador do Anel para referências dentro do JSON</td>
+<td>Identificador do Anel para referências dentro do <em>JSON</em></td>
 </tr>
 <tr>
 <td>numeroSMEE</td>
-<td>String</td>
+<td>Texto</td>
 <td>N</td>
 <td>Número SMEE do Anel</td>
 </tr>
 <tr>
 <td>CLA</td>
-<td>String</td>
+<td>Texto</td>
 <td>N</td>
 <td>Código de Localização do Anel</td>
 </tr>
@@ -600,7 +808,7 @@
 </tr>
 <tr>
 <td>versaoPlano</td>
-<td>referência a <a href="#versaoPlano">versaoPlano</a></td>
+<td>referência à <a href="#versaoPlano">versaoPlano</a></td>
 <td>S</td>
 <td>Versão plano ativa para esse anel</td>
 </tr>
@@ -608,7 +816,7 @@
 <td>planos</td>
 <td>vetor de referência aos <a href="#plano">planos</a></td>
 <td>S</td>
-<td>Lista de planos vinculadas a versão plano desse anel</td>
+<td>Lista de planos vinculadas à versão plano desse anel</td>
 </tr>
 </tbody>
 </table>
@@ -674,8 +882,8 @@
       }
 </code></pre>
 
-<h2 id="grupo-semaforico">Grupo Semáforico</h2>
-<p>Conjunto de grupos focais com indicações luminosas idênticas às que controlam grupos de movimentos que recebem simultaneamente o direito de passagem e que possuem as mesmas fases. Utiliza-se a notação Gn para identificar tanto nos projetos como nas programações semafóricas o grupo semafórico de número "n". Quanto aos tipos temos: grupo semafórico veicular composto de 3 fases (vermelha, amarela e verde) e grupo semafórico de pedestre composto de 2 fases (vermelha e verde).</p>
+<h2 id="grupo-semaforico">Grupo Semafórico</h2>
+<p>Conjunto de grupos focais com indicações luminosas idênticas às que controlam grupos de movimentos que recebem simultaneamente o direito de passagem e que possuem as mesmas fases. Utiliza-se a notação <em>Gn</em> para identificar tanto nos projetos como nas programações semafóricas o grupo semafórico de número <em>"n"</em>. Quanto aos tipos, temos: grupo semafórico veicular composto de 3 fases (vermelha, amarela e verde) e grupo semafórico de pedestre composto de 2 fases (vermelha e verde).</p>
 <h3 id="especificacao_2">Especificação</h3>
 <table>
 <thead>
@@ -689,25 +897,25 @@
 <tbody>
 <tr>
 <td>id</td>
-<td>String GUUID</td>
+<td>Texto <em>UUID</em></td>
 <td>S</td>
 <td>Identificador do Grupo Semáforico</td>
 </tr>
 <tr>
 <td>idJson</td>
-<td>String GUUID</td>
+<td>Texto <em>UUID</em></td>
 <td>S</td>
-<td>Identificador do Grupo Semáforico para referências dentro do JSON</td>
+<td>Identificador do Grupo Semáforico para referências dentro do <em>JSON</em></td>
 </tr>
 <tr>
 <td>tipo</td>
-<td>String</td>
+<td>Texto</td>
 <td>S</td>
 <td>PEDESTRE ou VEICULAR</td>
 </tr>
 <tr>
 <td>descricao</td>
-<td>String</td>
+<td>Texto</td>
 <td>N</td>
 <td>Descrição do Grupo Semafórico</td>
 </tr>
@@ -733,7 +941,7 @@
 <td>anel</td>
 <td>referência ao <a href="#anel">anel</a></td>
 <td>S</td>
-<td>Referência ao anel que esse grupo semáforico faz parte</td>
+<td>Referência ao anel ao qual esse grupo semáforico faz parte</td>
 </tr>
 <tr>
 <td>verdesConflitantesOrigem</td>
@@ -751,19 +959,19 @@
 <td>estagiosGruposSemaforicos</td>
 <td>vetor de referência de <a href="#estagio-grupo-semaforico">estágio grupo semafórico</a></td>
 <td>S</td>
-<td>Lista com as referências de estágios grupos semafóricos associado a esse grupo semáforico</td>
+<td>Lista com as referências de estágios grupos semafóricos associados a esse grupo semáforico</td>
 </tr>
 <tr>
 <td>transicoes</td>
 <td>vetor de referência de <a href="#transicao">transições</a></td>
 <td>S</td>
-<td>Lista com as referências de transições dsse grupo semáforico</td>
+<td>Lista com as referências de transições desse grupo semáforico</td>
 </tr>
 <tr>
 <td>tabelasEntreVerdes</td>
 <td>vetor de referência de <a href="#tabela-entre-verdes">tabelas de entre verdes</a></td>
 <td>S</td>
-<td>Lista com as referências de tabelas de entre verdes dsse grupo semáforico</td>
+<td>Lista com as referências de tabelas de entre verdes desse grupo semáforico</td>
 </tr>
 <tr>
 <td>transicoesComGanhoDePassagem</td>
@@ -854,15 +1062,15 @@
 <tbody>
 <tr>
 <td>id</td>
-<td>String GUUID</td>
+<td>Texto <em>UUID</em></td>
 <td>S</td>
 <td>Identificador do Estágio</td>
 </tr>
 <tr>
 <td>idJson</td>
-<td>String GUUID</td>
+<td>Texto <em>UUID</em></td>
 <td>S</td>
-<td>Identificador do Estágio para referências dentro do JSON</td>
+<td>Identificador do Estágio para referências dentro do <em>JSON</em></td>
 </tr>
 <tr>
 <td>tempoMaximoPermanencia</td>
@@ -898,7 +1106,7 @@
 <td>anel</td>
 <td>referência ao <a href="#anel">anel</a></td>
 <td>S</td>
-<td>Referência ao anel que essse estágio faz parte</td>
+<td>Referência ao anel ao qual essse estágio faz parte</td>
 </tr>
 <tr>
 <td>origemDeTransicoesProibidas</td>
@@ -978,11 +1186,15 @@
 <h2 id="detector">Detector</h2>
 <p>Dispositivo de atuação acoplado ao controlador podendo ser:</p>
 <ol>
-<li>Detector Veicular<ul>
+<li>
+<p>Detector Veicular</p>
+<ul>
 <li>Sensor destinado a registrar a presença ou passagem de veículos.</li>
 </ul>
 </li>
-<li>Botoeira <ul>
+<li>
+<p>Botoeira </p>
+<ul>
 <li>Dispositivo dotado de um botão que, ao ser acionado, envia um sinal ao controlador solicitando a implementação de um estágio dispensável.</li>
 </ul>
 </li>
@@ -1000,19 +1212,19 @@
 <tbody>
 <tr>
 <td>id</td>
-<td>String GUUID</td>
+<td>Texto <em>UUID</em></td>
 <td>S</td>
 <td>Identificador do Detector</td>
 </tr>
 <tr>
 <td>idJson</td>
-<td>String GUUID</td>
+<td>Texto <em>UUID</em></td>
 <td>S</td>
-<td>Identificador do Detector para referências dentro do JSON</td>
+<td>Identificador do Detector para referências dentro do <em>JSON</em></td>
 </tr>
 <tr>
 <td>tipo</td>
-<td>String</td>
+<td>Texto</td>
 <td>S</td>
 <td>PEDESTRE ou VEICULAR</td>
 </tr>
@@ -1044,17 +1256,16 @@
 <td>anel</td>
 <td>referência ao <a href="#anel">anel</a></td>
 <td>S</td>
-<td>Referência ao anel que esse detector faz parte</td>
+<td>Referência ao anel ao qual esse detector faz parte</td>
 </tr>
 <tr>
 <td>estagio</td>
 <td>referência ao <a href="#estagio">estágio</a></td>
 <td>S</td>
-<td>Referência ao estágio que esse detector faz parte</td>
+<td>Referência ao estágio ao qual esse detector faz parte</td>
 </tr>
 </tbody>
 </table>
-<p>TODO: Incluir campos de monitoramento</p>
 <h3 id="exemplo-json_4">Exemplo JSON</h3>
 <pre><code class="JSON">{
       &quot;id&quot;: &quot;a13f89e2-9e77-416a-9f92-3bbfe100a855&quot;,
@@ -1088,15 +1299,15 @@
 <tbody>
 <tr>
 <td>id</td>
-<td>String GUUID</td>
+<td>Texto <em>UUID</em></td>
 <td>S</td>
 <td>Identificador da Transição</td>
 </tr>
 <tr>
 <td>idJson</td>
-<td>String GUUID</td>
+<td>Texto <em>UUID</em></td>
 <td>S</td>
-<td>Identificador da Transição para referências dentro do JSON</td>
+<td>Identificador da Transição para referências dentro do <em>JSON</em></td>
 </tr>
 <tr>
 <td>origem</td>
@@ -1190,15 +1401,15 @@
 <tbody>
 <tr>
 <td>id</td>
-<td>String GUUID</td>
+<td>Texto <em>UUID</em></td>
 <td>S</td>
 <td>Identificador da Transição</td>
 </tr>
 <tr>
 <td>idJson</td>
-<td>String GUUID</td>
+<td>Texto <em>UUID</em></td>
 <td>S</td>
-<td>Identificador da Transição para referências dentro do JSON</td>
+<td>Identificador da Transição para referências dentro do <em>JSON</em></td>
 </tr>
 <tr>
 <td>origem</td>
@@ -1292,15 +1503,15 @@
 <tbody>
 <tr>
 <td>id</td>
-<td>String GUUID</td>
+<td>Texto <em>UUID</em></td>
 <td>S</td>
 <td>Identificador da Transição Proibida</td>
 </tr>
 <tr>
 <td>idJson</td>
-<td>String GUUID</td>
+<td>Texto <em>UUID</em></td>
 <td>S</td>
-<td>Identificador da Transição Proibida para referências dentro do JSON</td>
+<td>Identificador da Transição Proibida para referências dentro do <em>JSON</em></td>
 </tr>
 <tr>
 <td>origem</td>
@@ -1353,27 +1564,27 @@
 <tbody>
 <tr>
 <td>id</td>
-<td>String GUUID</td>
+<td>Texto <em>UUID</em></td>
 <td>S</td>
-<td>Identificador da Tabela de Entre Verdes</td>
+<td>Identificador da Tabela de Entreverdes</td>
 </tr>
 <tr>
 <td>idJson</td>
-<td>String GUUID</td>
+<td>Texto <em>UUID</em></td>
 <td>S</td>
-<td>Identificador da Tabela de Entre Verdes para referências dentro do JSON</td>
+<td>Identificador da Tabela de Entreverdes para referências dentro do <em>JSON</em></td>
 </tr>
 <tr>
 <td>posicao</td>
 <td>Inteiro</td>
 <td>S</td>
-<td>Posição da tabela entreverdes no anel</td>
+<td>Posição da Tabela Entreverdes no anel</td>
 </tr>
 <tr>
 <td>descricao</td>
-<td>String</td>
+<td>Texto</td>
 <td>S</td>
-<td>Descrição da Tabela de Entre Verdes</td>
+<td>Descrição da Tabela de Entreverdes</td>
 </tr>
 <tr>
 <td>grupoSemaforico</td>
@@ -1385,7 +1596,7 @@
 <td>tabelaEntreVerdesTransicoes</td>
 <td>vetor de referência de <a href="#tabela-entre-verdes-transicao">tabelas de entre verdes transições</a></td>
 <td>S</td>
-<td>Lista com as referências de tabelas de entre verdes transições dessa tabela de entre verdes</td>
+<td>Lista com as referências de Tabelas de Entreverdes transições dessa Tabela de Entreverdes</td>
 </tr>
 </tbody>
 </table>
@@ -1424,21 +1635,21 @@
 <tbody>
 <tr>
 <td>id</td>
-<td>String GUUID</td>
+<td>Texto <em>UUID</em></td>
 <td>S</td>
-<td>Identificador da Tabela de Entre Verdes Transições</td>
+<td>Identificador da Tabela de Entreverdes Transição</td>
 </tr>
 <tr>
 <td>idJson</td>
-<td>String GUUID</td>
+<td>Texto <em>UUID</em></td>
 <td>S</td>
-<td>Identificador da Tabela de Entre Verdes Transições para referências dentro do JSON</td>
+<td>Identificador da Tabela de Entreverdes Transição para referências dentro do <em>JSON</em></td>
 </tr>
 <tr>
 <td>tempoAmarelo</td>
 <td>Inteiro</td>
 <td>N</td>
-<td>Tempo de amarelo do entre verdes</td>
+<td>Tempo de amarelo do entreverdes</td>
 </tr>
 <tr>
 <td>tempoVermelhoIntermitente</td>
@@ -1450,7 +1661,7 @@
 <td>tempoVermelhoLimpeza</td>
 <td>Inteiro</td>
 <td>S</td>
-<td>Tempo de vermelho de limpeza do entre verdes</td>
+<td>Tempo de vermelho de limpeza do entreverdes</td>
 </tr>
 <tr>
 <td>tempoAtrasoGrupo</td>
@@ -1462,13 +1673,13 @@
 <td>tabelaEntreVerdes</td>
 <td>referência a <a href="#tabela-entre-verdes">tabela de entre verdes</a></td>
 <td>S</td>
-<td>Referência a tabela de entre verdes</td>
+<td>Referência à Tabela de Entreverdes</td>
 </tr>
 <tr>
 <td>transicao</td>
-<td>referência a <a href="#transicao">transição</a></td>
+<td>referência à <a href="#transicao">transição</a></td>
 <td>S</td>
-<td>Referência a transição</td>
+<td>Referência à transição</td>
 </tr>
 </tbody>
 </table>
@@ -1503,15 +1714,15 @@
 <tbody>
 <tr>
 <td>id</td>
-<td>String GUUID</td>
+<td>Texto <em>UUID</em></td>
 <td>S</td>
 <td>Identificador do Estágio Grupo Semafórico</td>
 </tr>
 <tr>
 <td>idJson</td>
-<td>String GUUID</td>
+<td>Texto <em>UUID</em></td>
 <td>S</td>
-<td>Identificador do Estágio Grupo Semafórico para referências dentro do JSON</td>
+<td>Identificador do Estágio Grupo Semafórico para referências dentro do <em>JSON</em></td>
 </tr>
 <tr>
 <td>estagio</td>
@@ -1527,7 +1738,6 @@
 </tr>
 </tbody>
 </table>
-<p>TODO: revisar o campo ativo</p>
 <h3 id="exemplo-json_10">Exemplo JSON</h3>
 <pre><code class="JSON">    {
       &quot;id&quot;: &quot;eee3b305-7e8e-4c1e-bd46-8f83f462b506&quot;,
@@ -1556,15 +1766,15 @@
 <tbody>
 <tr>
 <td>id</td>
-<td>String GUUID</td>
+<td>Texto <em>UUID</em></td>
 <td>S</td>
 <td>Identificador do Verde Conflitante</td>
 </tr>
 <tr>
 <td>idJson</td>
-<td>String GUUID</td>
+<td>Texto <em>UUID</em></td>
 <td>S</td>
-<td>Identificador do Verde Conflitante para referências dentro do JSON</td>
+<td>Identificador do Verde Conflitante para referências dentro do <em>JSON</em></td>
 </tr>
 <tr>
 <td>origem</td>
@@ -1594,7 +1804,7 @@
 </code></pre>
 
 <h2 id="plano">Plano</h2>
-<p>Denomina-se plano semafórico, ou simplesmente plano, ao conjunto de parâmetros introduzidos no controlador ou na central de controle que determina a sequência e as durações dos tempos exibidos pelo semáforo. O período de vigência de um plano está estabelecido na tabela horária. </p>
+<p>Denomina-se plano semafórico, ou simplesmente plano, o conjunto de parâmetros introduzidos no controlador ou na central de controle que determina a sequência e as durações dos tempos exibidos pelo semáforo. O período de vigência de um plano está estabelecido na tabela horária. </p>
 <h3 id="especificacao_12">Especificação</h3>
 <table>
 <thead>
@@ -1608,15 +1818,15 @@
 <tbody>
 <tr>
 <td>id</td>
-<td>String GUUID</td>
+<td>Texto <em>UUID</em></td>
 <td>S</td>
-<td>Identificador do Verde Conflitante</td>
+<td>Identificador do Plano</td>
 </tr>
 <tr>
 <td>idJson</td>
-<td>String GUUID</td>
+<td>Texto <em>UUID</em></td>
 <td>S</td>
-<td>Identificador do Verde Conflitante para referências dentro do JSON</td>
+<td>Identificador do Plano para referências dentro do <em>JSON</em></td>
 </tr>
 <tr>
 <td>posicao</td>
@@ -1626,7 +1836,7 @@
 </tr>
 <tr>
 <td>descricao</td>
-<td>String</td>
+<td>Texto</td>
 <td>N</td>
 <td>Descrição do plano</td>
 </tr>
@@ -1646,25 +1856,19 @@
 <td>posicaoTabelaEntreVerde</td>
 <td>inteiro</td>
 <td>S</td>
-<td>É o número da tabela entreverde que será utilizada nesse plano</td>
+<td>Número da tabela entreverde que será utilizada nesse plano</td>
 </tr>
 <tr>
 <td>modoOperacao</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
 <td>TEMPO_FIXO_ISOLADO, TEMPO_FIXO_COORDENADO, ATUADO, APAGADO, INTERMITENTE, MANUAL</td>
+<td>S</td>
 <td>Modo de operação do plano</td>
-<td></td>
-<td></td>
 </tr>
 <tr>
 <td>anel</td>
 <td>referência ao <a href="#anel">anel</a></td>
 <td>S</td>
-<td>Referência ao anel que essse plano faz parte</td>
+<td>Referência ao anel ao qual essse plano faz parte</td>
 </tr>
 <tr>
 <td>versaoPlano</td>
@@ -1682,7 +1886,7 @@
 <td>estagiosGruposSemaforicos</td>
 <td>vetor de referência de <a href="#estagio-grupo-semaforico">estágio grupo semafórico</a></td>
 <td>S</td>
-<td>Lista com as referências de estágios grupos semafóricos associado a esse plano</td>
+<td>Lista com as referências de estágios grupos semafóricos associados a esse plano</td>
 </tr>
 </tbody>
 </table>
@@ -1734,7 +1938,7 @@
 </code></pre>
 
 <h2 id="estagio-plano">Estágio Plano</h2>
-<p>Associação entre um estágio do anel a sequencia de estágios do plano.</p>
+<p>Associação entre um estágio do anel e a sequência de estágios do plano.</p>
 <h3 id="especificacao_13">Especificação</h3>
 <table>
 <thead>
@@ -1748,21 +1952,21 @@
 <tbody>
 <tr>
 <td>id</td>
-<td>String GUUID</td>
+<td>Texto <em>UUID</em></td>
 <td>S</td>
-<td>Identificador do Verde Conflitante</td>
+<td>Identificador do Estágio Plano</td>
 </tr>
 <tr>
 <td>idJson</td>
-<td>String GUUID</td>
+<td>Texto <em>UUID</em></td>
 <td>S</td>
-<td>Identificador do Verde Conflitante para referências dentro do JSON</td>
+<td>Identificador do Estágio Plano para referências dentro do <em>JSON</em></td>
 </tr>
 <tr>
 <td>posicao</td>
 <td>Inteiro</td>
 <td>S</td>
-<td>Posição do estágio na sequencia de estágios do plano</td>
+<td>Posição do estágio na sequência de estágios do plano</td>
 </tr>
 <tr>
 <td>tempoVerde</td>
@@ -1849,15 +2053,15 @@
 <tbody>
 <tr>
 <td>id</td>
-<td>String GUUID</td>
+<td>Texto <em>UUID</em></td>
 <td>S</td>
-<td>Identificador do Verde Conflitante</td>
+<td>Identificador do Grupo Semafórico Plano</td>
 </tr>
 <tr>
 <td>idJson</td>
-<td>String GUUID</td>
+<td>Texto <em>UUID</em></td>
 <td>S</td>
-<td>Identificador do Verde Conflitante para referências dentro do JSON</td>
+<td>Identificador do Grupo Semafórico Plano para referências dentro do <em>JSON</em></td>
 </tr>
 <tr>
 <td>ativado</td>
@@ -1908,27 +2112,27 @@
 <tbody>
 <tr>
 <td>id</td>
-<td>String GUUID</td>
+<td>Texto <em>UUID</em></td>
 <td>S</td>
-<td>Identificador do Verde Conflitante</td>
+<td>Identificador da Versão Plano</td>
 </tr>
 <tr>
 <td>idJson</td>
-<td>String GUUID</td>
+<td>Texto <em>UUID</em></td>
 <td>S</td>
-<td>Identificador do Verde Conflitante para referências dentro do JSON</td>
+<td>Identificador da Versão Plano para referências dentro do <em>JSON</em></td>
 </tr>
 <tr>
 <td>anel</td>
 <td>referência ao <a href="#anel">anel</a></td>
 <td>S</td>
-<td>Referência ao anel que essa versão de planos faz parte</td>
+<td>Referência ao anel ao qual essa versão de planos faz parte</td>
 </tr>
 <tr>
 <td>planos</td>
 <td>vetor de referência aos <a href="#plano">planos</a></td>
 <td>S</td>
-<td>Lista de planos vinculadas a versão plano desse anel</td>
+<td>Lista de planos vinculadas à versão plano desse anel</td>
 </tr>
 </tbody>
 </table>
@@ -1966,21 +2170,21 @@
 <tbody>
 <tr>
 <td>id</td>
-<td>String GUUID</td>
+<td>Texto <em>UUID</em></td>
 <td>S</td>
-<td>Identificador do Verde Conflitante</td>
+<td>Identificador da Versão Tabela Horária</td>
 </tr>
 <tr>
 <td>idJson</td>
-<td>String GUUID</td>
+<td>Texto <em>UUID</em></td>
 <td>S</td>
-<td>Identificador do Verde Conflitante para referências dentro do JSON</td>
+<td>Identificador da Versão Tabela Horária para referências dentro do <em>JSON</em></td>
 </tr>
 <tr>
 <td>tabelaHoraria</td>
 <td>referência a <a href="#tabela-horaria">tabelaHoraria</a></td>
 <td>S</td>
-<td>Referência a tabela horária</td>
+<td>Referência à tabela horária</td>
 </tr>
 </tbody>
 </table>
@@ -1996,7 +2200,7 @@
 </code></pre>
 
 <h2 id="tabela-horaria">Tabela Horária</h2>
-<p>É parte da programação de um controlador semafórico que determina os horários, dias da semana e datas em que se deve efetuar troca de planos. Os horários, dias da semana e datas são os eventos de ativação de planos</p>
+<p>É parte da programação de um controlador semafórico que determina os horários, dias da semana e datas em que se deve efetuar a troca de planos. Os horários, dias da semana e datas são os eventos de ativação de planos</p>
 <h3 id="especificacao_17">Especificação</h3>
 <table>
 <thead>
@@ -2010,21 +2214,21 @@
 <tbody>
 <tr>
 <td>id</td>
-<td>String GUUID</td>
+<td>Texto <em>UUID</em></td>
 <td>S</td>
-<td>Identificador do Verde Conflitante</td>
+<td>Identificador da Tabela Horária</td>
 </tr>
 <tr>
 <td>idJson</td>
-<td>String GUUID</td>
+<td>Texto <em>UUID</em></td>
 <td>S</td>
-<td>Identificador do Verde Conflitante para referências dentro do JSON</td>
+<td>Identificador da Tabela Horária para referências dentro do <em>JSON</em></td>
 </tr>
 <tr>
 <td>versaoTabelaHoraria</td>
 <td>referência a <a href="#versao-tabela-horaria">versão tabela horária</a></td>
 <td>S</td>
-<td>Referência a versão tabela horária</td>
+<td>Referência à versão tabela horária</td>
 </tr>
 <tr>
 <td>eventos</td>
@@ -2067,19 +2271,19 @@
 <tbody>
 <tr>
 <td>id</td>
-<td>String GUUID</td>
+<td>Texto <em>UUID</em></td>
 <td>S</td>
-<td>Identificador do Verde Conflitante</td>
+<td>Identificador do Evento</td>
 </tr>
 <tr>
 <td>idJson</td>
-<td>String GUUID</td>
+<td>Texto <em>UUID</em></td>
 <td>S</td>
-<td>Identificador do Verde Conflitante para referências dentro do JSON</td>
+<td>Identificador do Evento para referências dentro do <em>JSON</em></td>
 </tr>
 <tr>
 <td>posicao</td>
-<td>Integer</td>
+<td>Inteiro</td>
 <td>S</td>
 <td>Posição do evento na tabela horária</td>
 </tr>
@@ -2105,7 +2309,7 @@
 <td>horario</td>
 <td>Hora</td>
 <td>S</td>
-<td>Indica o horária de ativação do evento</td>
+<td>Indica o horário de ativação do evento</td>
 </tr>
 <tr>
 <td>posicaoPlano</td>
@@ -2117,7 +2321,7 @@
 <td>tabelaHoraria</td>
 <td>referência a <a href="#tabela-horaria">tabelaHoraria</a></td>
 <td>S</td>
-<td>Referência a tabela horária</td>
+<td>Referência à tabela horária</td>
 </tr>
 </tbody>
 </table>
@@ -2137,7 +2341,7 @@
     }
 </code></pre>
 
-<h2 id="atraso-grupo">Atraso Grupo</h2>
+<h2 id="atraso-de-grupo">Atraso de Grupo</h2>
 <p>Definições de atraso de grupo para os grupos semafóricos em determinada transição.</p>
 <h3 id="especificacao_19">Especificação</h3>
 <table>
@@ -2152,15 +2356,15 @@
 <tbody>
 <tr>
 <td>id</td>
-<td>String GUUID</td>
+<td>Texto <em>UUID</em></td>
 <td>S</td>
-<td>Identificador do Verde Conflitante</td>
+<td>Identificador do Atraso de Grupo</td>
 </tr>
 <tr>
 <td>idJson</td>
-<td>String GUUID</td>
+<td>Texto <em>UUID</em></td>
 <td>S</td>
-<td>Identificador do Verde Conflitante para referências dentro do JSON</td>
+<td>Identificador do Atraso de Grupo para referências dentro do <em>JSON</em></td>
 </tr>
 <tr>
 <td>atrasoDeGrupo</td>
@@ -2171,35 +2375,6 @@
 </tbody>
 </table>
 <h3 id="exemplo-json_19">Exemplo JSON</h3>
-<pre><code class="JSON"></code></pre>
-
-<h2 id="atraso-grupo_1">Atraso Grupo</h2>
-<h3 id="especificacao_20">Especificação</h3>
-<table>
-<thead>
-<tr>
-<th>Campo</th>
-<th>Tipo</th>
-<th>Obrigatório</th>
-<th>Descrição</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>id</td>
-<td>String GUUID</td>
-<td>S</td>
-<td>Identificador do Verde Conflitante</td>
-</tr>
-<tr>
-<td>idJson</td>
-<td>String GUUID</td>
-<td>S</td>
-<td>Identificador do Verde Conflitante para referências dentro do JSON</td>
-</tr>
-</tbody>
-</table>
-<h3 id="exemplo-json_20">Exemplo JSON</h3>
 <pre><code class="JSON">{
       &quot;id&quot;: &quot;3d8027af-c3cf-4103-b339-44f48726d855&quot;,
       &quot;idJson&quot;: &quot;e5b82afd-f49f-4e52-948c-ad18366276b8&quot;,

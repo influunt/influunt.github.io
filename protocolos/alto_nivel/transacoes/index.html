@@ -217,11 +217,11 @@
             <div class="section">
               
                 <h1 id="transacoes">Transações</h1>
-<p>Quando a central deseja enviar informações para o controlador e garantir que o estado final esteja consistente ela realização uma transação.
+<p>Quando a central deseja enviar informações para o controlador e garantir que o estado final esteja consistente, ela realiza uma transação.
 Os seguintes tipos de transações podem ser enviadas para o controlador:</p>
 <h2 id="etapas-da-transacao">Etapas da Transação</h2>
-<p>As transações podem ser executadas para mais de um controlador ao mesmo tempo e visam garantir que só sejam aplicadas se todos os controladores forem capazes de realiza-lá. A transação segue o modelo two-phase commit comum em sistemas distribuidos. Na primeira etapa os dados que cusam a mudança de estado são enviados (fase de preparação) e na segunda etapa acontece a confirmação da transação.</p>
-<p>O conteúdo do envelope é substituido por um objeto do tipo transação que contém os seguintes campos</p>
+<p>As transações podem ser executadas para mais de um controlador ao mesmo tempo e visam garantir que só sejam aplicadas se todos os controladores forem capazes de realizá-las. A transação segue o modelo <em>two-phase commit,</em> comum em sistemas distribuidos. Na primeira etapa os dados que causam a mudança de estado são enviados (fase de preparação) e na segunda etapa acontece a confirmação da transação.</p>
+<p>O conteúdo do envelope é substituído por um objeto do tipo transação que contém os seguintes campos:</p>
 <table>
 <thead>
 <tr>
@@ -233,33 +233,33 @@ Os seguintes tipos de transações podem ser enviadas para o controlador:</p>
 <tbody>
 <tr>
 <td>transacaoId</td>
-<td>String GUUID</td>
+<td>Texto <em>UUID</em></td>
 <td>Identificador da transação</td>
 </tr>
 <tr>
 <td>etapaDaTransacao</td>
-<td>String</td>
+<td>Texto</td>
 <td>Etapa atual da transação</td>
 </tr>
 <tr>
 <td>tipoTransacao</td>
-<td>String</td>
+<td>Texto</td>
 <td>Tipo de transação a ser executada</td>
 </tr>
 <tr>
 <td>idControlador</td>
-<td>String GUUID</td>
+<td>Texto <em>UUID</em></td>
 <td>Identificador do Controlador</td>
 </tr>
 <tr>
 <td>timestamp</td>
 <td>Número Longo</td>
-<td>Carimbo de tempo referente ao momento de criação do envelope. Deve estar no formato milisegundo desde 1 de janeiro de 1970</td>
+<td>Carimbo de tempo referente ao momento de criação do envelope. Deve estar no formato milissegundo desde 1 de janeiro de 1970</td>
 </tr>
 <tr>
 <td>payload</td>
-<td>Objeto JSON ou String  representado um Objeto JSON</td>
-<td>Mensagem a ser entregue pela transação. Pode ser direntamente o objeto JSON, ou nos casos onde seja requirido o criptografado e convertido para BASE64</td>
+<td>Objeto <em>JSON</em> ou <em>String</em>  representado um Objeto <em>JSON</em></td>
+<td>Mensagem a ser entregue pela transação. Pode ser diretamente o objeto <em>JSON</em> ou, nos casos onde seja requerido, criptografado e convertido para <em>BASE64</em></td>
 </tr>
 </tbody>
 </table>
@@ -276,35 +276,35 @@ Os seguintes tipos de transações podem ser enviadas para o controlador:</p>
 <p>As transações podem ter as seguintes etapas:</p>
 <h2 id="etapas-da-transacao_1">Etapas da Transação</h2>
 <h3 id="new">NEW</h3>
-<p>O usuário comando alguma ação no sistema e a central cria uma nova transação para efetuar a solicitação.
+<p>O usuário realiza alguma ação no sistema e a central cria uma nova transação para efetuar a solicitação.
 Sentido: Tela --&gt; Central</p>
 <h3 id="completed">COMPLETED</h3>
 <p>A central informa ao usuário que a transação completou com sucesso.
 Sentido: Central --&gt; Tela</p>
 <h3 id="failed">FAILED</h3>
 <p>A central informa ao usuário que a transação falhou.
-Sentido: Central --&gt; Tela.</p>
+Sentido: Central --&gt; Tela</p>
 <h3 id="prepare_to_commit">PREPARE_TO_COMMIT</h3>
 <p>Informa a um controlador que ele deve se preparar para realizar uma transação.
-Sentido: Central --&gt; Controlador.</p>
+Sentido: Central --&gt; Controlador</p>
 <h3 id="prepare_ok">PREPARE_OK</h3>
-<p>O controlador informa a central que está preparado para realizar a transação.
-Sentido: Controlador --&gt; Central.</p>
+<p>O controlador informa à central que está preparado para realizar a transação.
+Sentido: Controlador --&gt; Central</p>
 <h3 id="prepare_fail">PREPARE_FAIL</h3>
-<p>O controlador informa a central que não pode realizar a transação.
-Sentido: Controlador --&gt; Central.</p>
+<p>O controlador informa à central que não pode realizar a transação.
+Sentido: Controlador --&gt; Central</p>
 <h3 id="commit">COMMIT</h3>
-<p>O central informa o controlador para efetuar a transação.
-Sentido: Central --&gt; Controlador.</p>
+<p>A central informa o controlador para efetuar a transação.
+Sentido: Central --&gt; Controlador</p>
 <h3 id="abort">ABORT</h3>
-<p>O central informa o controlador para cancelar a transação.
-Sentido: Central --&gt; Controlador.</p>
+<p>A central informa ao controlador para cancelar a transação.
+Sentido: Central --&gt; Controlador</p>
 <h3 id="commited">COMMITED</h3>
-<p>O controlador informa a central que realizou a transação
-Sentido: Controlador --&gt; Central.</p>
+<p>O controlador informa à central que realizou a transação
+Sentido: Controlador --&gt; Central</p>
 <h3 id="aborted">ABORTED</h3>
-<p>O controlador informa a central que abortou a transação
-Sentido: Controlador --&gt; Central.</p>
+<p>O controlador informa à central que abortou a transação
+Sentido: Controlador --&gt; Central</p>
 <h3 id="exemplo-de-uma-transacao-realizada-com-sucesso">Exemplo de uma transação realizada com sucesso</h3>
 <p><img alt="TRANSACAO_OK" src="../../../img/transacao_ok.png" /></p>
 <h3 id="exemplo-de-uma-transacao-abortada">Exemplo de uma transação abortada</h3>
@@ -5508,7 +5508,7 @@ Sentido: Controlador --&gt; Central.</p>
 <td>horarioEntrada</td>
 <td>Long</td>
 <td>S</td>
-<td>Referencia de tempo que será usada para impor o modo de operação</td>
+<td>Referência de tempo que será usada para impor o modo de operação</td>
 </tr>
 <tr>
 <td>duracao</td>
@@ -5526,7 +5526,7 @@ Sentido: Controlador --&gt; Central.</p>
 }
 </code></pre>
 
-<h3 id="imposicao_plano">IMPOSICAO_PLANO</h3>
+<h3 id="imposicao-de-plano-imposicao_plano">Imposição de Plano (IMPOSICAO_PLANO)</h3>
 <p>Imposição de plano no controlador.</p>
 <table>
 <thead>
@@ -5554,7 +5554,7 @@ Sentido: Controlador --&gt; Central.</p>
 <td>horarioEntrada</td>
 <td>Long</td>
 <td>S</td>
-<td>Referencia de tempo que será usada para impor o modo de operação</td>
+<td>Referência de tempo que será usada para impor o modo de operação</td>
 </tr>
 <tr>
 <td>duracao</td>
@@ -5566,7 +5566,7 @@ Sentido: Controlador --&gt; Central.</p>
 <td>plano</td>
 <td>Objeto JSON</td>
 <td>N</td>
-<td>Plano caso seja enviado um plano temporário.</td>
+<td>Plano, caso seja enviado um plano temporário.</td>
 </tr>
 </tbody>
 </table>
@@ -5688,7 +5688,7 @@ Sentido: Controlador --&gt; Central.</p>
 <td>numeroAnel</td>
 <td>Inteiro</td>
 <td>S</td>
-<td>Número do anel que será removida a imposição de plano ou modo</td>
+<td>Número do anel do qual será removida a imposição de plano ou modo</td>
 </tr>
 </tbody>
 </table>

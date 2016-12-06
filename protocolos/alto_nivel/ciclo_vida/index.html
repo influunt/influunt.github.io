@@ -219,7 +219,7 @@
             <div class="section">
               
                 <h1 id="ciclo-de-vida-do-controlador">Ciclo de Vida do Controlador</h1>
-<p>O ciclo de vida do controlador define quais em quais estados um controlador pode estar em um devido momento, bem como as possíveis transições entre esses estados. Toda vez que o controlador mudar de staus a central deve ser notificada. A central também pode impor mudanças nos status do controlador.</p>
+<p>O ciclo de vida do controlador define em quais status um controlador pode estar em um devido momento, bem como as possíveis transições entre esses status. Toda vez que o controlador mudar de status a central deve ser notificada. A central também pode impor mudanças nos status do controlador.</p>
 <p>A seguir é apresentado o diagrama de estados do controlador:</p>
 <p><img alt="CONTROLADOR_ONLINE" src="../../../img/estados.png" /></p>
 <h2 id="status">Status</h2>
@@ -250,7 +250,7 @@
 </tr>
 <tr>
 <td>INATIVO</td>
-<td>O controlador foi inativado. Só será ativado novamente se um comando de ativação dor dado por um operador</td>
+<td>O controlador foi inativado. Só será ativado novamente se um comando de ativação for dado por um operador</td>
 </tr>
 <tr>
 <td>OPERANDO_COM_FALHAS</td>
@@ -263,7 +263,7 @@
 </tbody>
 </table>
 <h2 id="transicoes">Transições</h2>
-<p>A tabela baixo lista as possíveis transições entre os estados do controlador. O modo de disparo pode ser <strong>M</strong> (Manual) ou <strong>A</strong> (Automático). O campo <strong>mensagem</strong> descreve qual mensagem deve ser enviada para causar a transição:</p>
+<p>A tabela abaixo lista as possíveis transições entre os estados do controlador. O modo de disparo pode ser <strong>M</strong> (Manual) ou <strong>A</strong> (Automático). O campo <strong>mensagem</strong> descreve qual mensagem deve ser enviada para causar a transição:</p>
 <table>
 <thead>
 <tr>
@@ -286,42 +286,42 @@
 <td>NOVO</td>
 <td>CONFIGURADO</td>
 <td>CONFIGURACAO INICIAL</td>
-<td>A</td>
-<td>O controlador recebeu da central sua configuração inicial e esta pronto para entrar em operação</td>
+<td>Automático</td>
+<td>O controlador recebeu da central sua configuração inicial e está pronto para entrar em operação</td>
 </tr>
 <tr>
 <td>CONFIGURADO, EM MANUTENCAO, INATIVO</td>
 <td>ATIVO</td>
 <td>ATIVAR</td>
-<td>M</td>
+<td>Manual</td>
 <td>O operador enviou o comando de ativar</td>
 </tr>
 <tr>
 <td>OPERANDO COM FALHAS, INOPERANTE</td>
 <td>ATIVO</td>
 <td>ATIVAR</td>
-<td>A</td>
+<td>Automático</td>
 <td>O controlador percebeu que a falha foi sanada e que o controlador voltou a operar normalmente</td>
 </tr>
 <tr>
 <td>ATIVO, OPERANDO COM FALHAS, INOPERANTE</td>
 <td>EM MANUTENCAO</td>
 <td>COLOCAR EM MANUTENCAO</td>
-<td>M</td>
+<td>Manual</td>
 <td>O operador enviou o comando de colocar em manutenção</td>
 </tr>
 <tr>
 <td>ATIVO, INOPERANTE</td>
 <td>OPERANDO COM FALHAS</td>
 <td>REPORTAR FALHA</td>
-<td>A</td>
+<td>Automático</td>
 <td>O controlador percebeu um falha leve e continua operando mesmo assim</td>
 </tr>
 <tr>
 <td>ATIVO, OPERANDO COM FALHAS</td>
 <td>INOPERANTE</td>
 <td>REPORTAR FALHA GRAVE</td>
-<td>A</td>
+<td>Automático</td>
 <td>O controlador percebeu um falha grave e interrompeu sua operação</td>
 </tr>
 <tr>
@@ -337,83 +337,33 @@
 <p><img alt="CONFIGURACAO_CONTROLADOR_CENTRAL" src="../../../img/CONFIGURACAO_CONTROLADOR_CENTRAL.png" /></p>
 <h2 id="mensagem-do-ciclo-de-vida-central-controlador">Mensagem do Ciclo de Vida: Central / Controlador</h2>
 <p><img alt="CONFIGURACAO_CENTRAL_CONTROLADOR" src="../../../img/CONFIGURACAO_CENTRAL_CONTROLADOR.png" /></p>
-<h3 id="configuracao-incial">CONFIGURACAO INCIAL</h3>
-<p>Quando um controlador com status NOVO conectar com a internet ele deve solicitar a central sua configuração. Para isso deve enviar a mensagem CONFIGURACAO_INICIAL <a href="#CONFIGURACAO_INICIAL">CONFIGURACAO_INICIAL</a> para o tópico<a href="../comunicao/topicos#central_echo">/central/configuracao</a>.</p>
+<h3 id="configuracao-incial">CONFIGURAÇÃO INCIAL</h3>
+<p>Quando um controlador com status NOVO se conectar à internet ele deve solicitar à central sua configuração. Para isso, deve enviar a mensagem CONFIGURACAO_INICIAL <a href="#CONFIGURACAO_INICIAL">CONFIGURACAO_INICIAL</a> para o tópico<a href="../comunicao/topicos#central_echo">/central/configuracao</a>.</p>
 <p>O conteúdo da mensagem é vazio.</p>
 <pre><code class="JSON">{}
 </code></pre>
 
-<h3 id="configuracao">CONFIGURACAO</h3>
-<p>Essa mensagem contém todas as configurações necessárias para a operação de um controlador. Pode ser enviada como resposta a mensagem [CONFIGURACAO_INICIAL] ou quando o controlador está no estado EM_MANUTENÇÃO para atualizar sua configuração.</p>
+<h3 id="configuracao">CONFIGURAÇÃO</h3>
+<p>Essa mensagem contém todas as configurações necessárias para a operação de um controlador. Pode ser enviada como resposta à mensagem [CONFIGURACAO_INICIAL] ou quando o controlador está no estado EM_MANUTENÇÃO para atualizar sua configuração.</p>
 <p>O conteúdo dessa mensagem está especificado no tópico <a href="../../../protocolos/alto_nivel/configuracao/">Configuração do Controlador</a></p>
 <h3 id="ativar">ATIVAR</h3>
 <p>Mensagem enviada para colocar o controlador no modo de operação ATIVO. Pode ser enviada manualmente pelo operador para tirar o controlador dos estados de INATIVO e EM_MANUTENCAO, ou pelo próprio controlador ao se recuperar de uma falaha.</p>
-<table>
-<thead>
-<tr>
-<th>Campo</th>
-<th>Tipo</th>
-<th>Obrigatorio</th>
-</tr>
-</thead>
-<tbody></tbody>
-</table>
 <pre><code class="JSON"></code></pre>
 
-<h3 id="colocar-em-manutencao">COLOCAR EM MANUTENCAO</h3>
-<p>O operador pode enviar a mensagem COLOCAR_EM_MANUTENCAO para realizar manutenções programadas ou de excessão em um controlador.</p>
-<table>
-<thead>
-<tr>
-<th>Campo</th>
-<th>Tipo</th>
-<th>Obrigatorio</th>
-</tr>
-</thead>
-<tbody></tbody>
-</table>
+<h3 id="colocar-em-manutencao">COLOCAR EM MANUTENÇÃO</h3>
+<p>O operador pode enviar a mensagem COLOCAR_EM_MANUTENCAO para realizar manutenções programadas ou de exceção em um controlador.</p>
 <pre><code class="JSON"></code></pre>
 
 <h3 id="reportar-falha">REPORTAR FALHA</h3>
 <p>Quando o controlador detecta uma falha que permita que ele continue operando ele deve enviar a mensagem REPORTAR_FALHA ao entrar no estado OPERANDO_COM_FALHAS.</p>
-<table>
-<thead>
-<tr>
-<th>Campo</th>
-<th>Tipo</th>
-<th>Obrigatorio</th>
-</tr>
-</thead>
-<tbody></tbody>
-</table>
 <pre><code class="JSON"></code></pre>
 
 <h3 id="reportar-falha-grave">REPORTAR FALHA GRAVE</h3>
 <p>Quando o controlador detecta uma falha grave que não permita que ele continue operando, ele deve enviar a mensagem REPORTAR_FALHA_GRAVE ao entrar no estado INOPERANTE.</p>
-<table>
-<thead>
-<tr>
-<th>Campo</th>
-<th>Tipo</th>
-<th>Obrigatorio</th>
-</tr>
-</thead>
-<tbody></tbody>
-</table>
 <pre><code class="JSON"></code></pre>
 
 <h3 id="inativar">INATIVAR</h3>
 <p>Um operador pode colocar um controlador como INATIVO. Esse estado deve ser utilizado para um controlador que não fará mais parte da rede.</p>
-<table>
-<thead>
-<tr>
-<th>Campo</th>
-<th>Tipo</th>
-<th>Obrigatorio</th>
-</tr>
-</thead>
-<tbody></tbody>
-</table>
 <pre><code class="JSON"></code></pre>
               
             </div>

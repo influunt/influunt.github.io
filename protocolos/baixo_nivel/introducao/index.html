@@ -213,7 +213,7 @@
             <div class="section">
               
                 <h1 id="introducao">Introdução</h1>
-<p>O protocolo de baixo nível especifica um protocolo serial para controladores que utilizem o 72c. Esse protocolo constitui em uma serie de mensagem binárias que são enviadas do 72c para o hardware ou do hardware para o 72c. Os mensagem são empacotados de forma padrão na estrutura chamada mensagem e são transmitidas em formato binário.</p>
+<p>O protocolo de baixo nível especifica um protocolo serial para controladores que utilizem o 72c. Esse protocolo constitui uma série de mensagens binárias que são enviadas do 72c para o hardware ou do hardware para o 72c. As mensagens são empacotadas de forma padrão na estrutura chamada Mensagem e são transmitidas em formato binário.</p>
 <h2 id="mensagem">Mensagem</h2>
 <table>
 <thead>
@@ -227,32 +227,32 @@
 <tr>
 <td>Tamanho</td>
 <td>8 bits</td>
-<td>Tamanho em bytes da mensagem que esta sendo enviada</td>
+<td>Tamanho em bytes da mensagem que está sendo enviada</td>
 </tr>
 <tr>
 <td>Tipo de Mensagem</td>
 <td>8 bits</td>
-<td>Descreve o tipo de mensagem que esta sendo enviada conforme a tabela de tipo de mensagem</td>
+<td>Descreve o tipo de mensagem que está sendo enviada conforme a tabela de tipo de mensagem</td>
 </tr>
 <tr>
 <td>Sequencia</td>
 <td>16 bits</td>
-<td>Número sequencia da mensagem. Deve ser incrementado a cada nova mensagem enviada</td>
+<td>Número sequência da mensagem. Deve ser incrementado a cada nova mensagem enviada</td>
 </tr>
 <tr>
 <td>Mensagem</td>
 <td>Variável</td>
-<td>Conteúdo da mensagem a ser enviada</td>
+<td>Conteúdo da mensagem que está sendo enviada</td>
 </tr>
 <tr>
 <td>Checksum</td>
 <td>8 bits</td>
-<td>Checksum de toda a mensagem utilizando o algorítmo LRC</td>
+<td><em>Checksum</em> de toda a mensagem utilizando o algorítmo <em>LRC</em></td>
 </tr>
 </tbody>
 </table>
 <h3 id="mensagem-de-inicio">Mensagem de Início</h3>
-<p>O 72c envia a mensagem de íncio para o hardware para informar que está pronto para começar a envio de estágios.</p>
+<p>O 72c envia a mensagem de início ao hardware para informar que está pronto para começar o envio de estágios.</p>
 <table>
 <thead>
 <tr>
@@ -265,88 +265,87 @@
 <tr>
 <td>Anel G1</td>
 <td>4 bits</td>
-<td>Indica qual anel pertence o grupo semafórico G1</td>
+<td>Indica a qual anel pertence o grupo semafórico G1</td>
 </tr>
 <tr>
 <td>Anel G2</td>
 <td>4 bits</td>
-<td>Indica qual anel pertence o grupo semafórico G2</td>
+<td>Indica a qual anel pertence o grupo semafórico G2</td>
 </tr>
 <tr>
 <td>Anel G3</td>
 <td>4 bits</td>
-<td>Indica qual anel pertence o grupo semafórico G3</td>
+<td>Indica a qual anel pertence o grupo semafórico G3</td>
 </tr>
 <tr>
 <td>Anel G4</td>
 <td>4 bits</td>
-<td>Indica qual anel pertence o grupo semafórico G4</td>
+<td>Indica a qual anel pertence o grupo semafórico G4</td>
 </tr>
 <tr>
 <td>Anel G5</td>
 <td>4 bits</td>
-<td>Indica qual anel pertence o grupo semafórico G5</td>
+<td>Indica a qual anel pertence o grupo semafórico G5</td>
 </tr>
 <tr>
 <td>Anel G6</td>
 <td>4 bits</td>
-<td>Indica qual anel pertence o grupo semafórico G6</td>
+<td>Indica a qual anel pertence o grupo semafórico G6</td>
 </tr>
 <tr>
 <td>Anel G7</td>
 <td>4 bits</td>
-<td>Indica qual anel pertence o grupo semafórico G7</td>
+<td>Indica a qual anel pertence o grupo semafórico G7</td>
 </tr>
 <tr>
 <td>Anel G8</td>
 <td>4 bits</td>
-<td>Indica qual anel pertence o grupo semafórico G8</td>
+<td>Indica a qual anel pertence o grupo semafórico G8</td>
 </tr>
 <tr>
 <td>Anel G9</td>
 <td>4 bits</td>
-<td>Indica qual anel pertence o grupo semafórico G9</td>
+<td>Indica a qual anel pertence o grupo semafórico G9</td>
 </tr>
 <tr>
 <td>Anel G10</td>
 <td>4 bits</td>
-<td>Indica qual anel pertence o grupo semafórico G10</td>
+<td>Indica a qual anel pertence o grupo semafórico G10</td>
 </tr>
 <tr>
 <td>Anel G11</td>
 <td>4 bits</td>
-<td>Indica qual anel pertence o grupo semafórico G11</td>
+<td>Indica a qual anel pertence o grupo semafórico G11</td>
 </tr>
 <tr>
 <td>Anel G12</td>
 <td>4 bits</td>
-<td>Indica qual anel pertence o grupo semafórico G12</td>
+<td>Indica a qual anel pertence o grupo semafórico G12</td>
 </tr>
 <tr>
 <td>Anel G13</td>
 <td>4 bits</td>
-<td>Indica qual anel pertence o grupo semafórico G13</td>
+<td>Indica a qual anel pertence o grupo semafórico G13</td>
 </tr>
 <tr>
 <td>Anel G14</td>
 <td>4 bits</td>
-<td>Indica qual anel pertence o grupo semafórico G14</td>
+<td>Indica a qual anel pertence o grupo semafórico G14</td>
 </tr>
 <tr>
 <td>Anel G15</td>
 <td>4 bits</td>
-<td>Indica qual anel pertence o grupo semafórico G15</td>
+<td>Indica a qual anel pertence o grupo semafórico G15</td>
 </tr>
 <tr>
 <td>Anel G16</td>
 <td>4 bits</td>
-<td>Indica qual anel pertence o grupo semafórico G16</td>
+<td>Indica a qual anel pertence o grupo semafórico G16</td>
 </tr>
 </tbody>
 </table>
 <h3 id="estagio">Estágio</h3>
-<p>O 72c informa a configuração dos grupos semafóricos de um determinado anel. Essa configuração deve ser seguida pela hardware até que uma nova
-configuração seja enviada.</p>
+<p>O 72c informa a configuração dos grupos semafóricos de um determinado anel. Essa configuração deve ser seguida pelo hardware até que uma nova configuração seja enviada.</p>
 <table>
 <thead>
 <tr>
@@ -374,7 +373,7 @@ configuração seja enviada.</p>
 <tr>
 <td>Quantidade de Grupos Semafóricos</td>
 <td>5 bits</td>
-<td>Quantidade de grupos semaforicos que fazem parte dessa configuração de estágio</td>
+<td>Quantidade de grupos semafóricos que fazem parte dessa configuração de estágio</td>
 </tr>
 <tr>
 <td>Configuração do Grupo Semafórico</td>
@@ -397,12 +396,12 @@ configuração seja enviada.</p>
 <tr>
 <td>Flag pedestre/veicular</td>
 <td>1 bit</td>
-<td>Se verdadeiro esse é um grupo semafórico de pedestre</td>
+<td>Se verdadeiro, esse é um grupo semafórico de pedestre</td>
 </tr>
 <tr>
 <td>Flag composição dos tempos</td>
 <td>2 bits</td>
-<td>Ver tabela de de flag composição dos tempos</td>
+<td>Ver tabela de flag composição dos tempos</td>
 </tr>
 <tr>
 <td>Grupo</td>
@@ -412,17 +411,17 @@ configuração seja enviada.</p>
 <tr>
 <td>Tempo De Atraso de Grupo ou Entreverde</td>
 <td>16 bits</td>
-<td>Tempo de atraso de grupo para perde do direito de passagem ou tempo de vermelho no periodo de entreverde para o grupo com ganho do direito passagem.</td>
+<td>Tempo de atraso de grupo para perda do direito de passagem ou tempo de vermelho no período de entreverdes para o grupo com ganho do direito passagem.</td>
 </tr>
 <tr>
 <td>Tempo Amarelo</td>
 <td>16 bits</td>
-<td>Tempo de amarelho para veícular ou vermelho intermitente para pedestre</td>
+<td>Tempo de amarelo para veicular ou vermelho intermitente para pedestre</td>
 </tr>
 <tr>
 <td>Tempo Vermelho Limpeza</td>
 <td>16 bits</td>
-<td>Tempo de vermelho limpeza</td>
+<td>Tempo de vermelho de limpeza</td>
 </tr>
 <tr>
 <td>Tempo do Estágio</td>
@@ -482,7 +481,7 @@ configuração seja enviada.</p>
 <tr>
 <td>Flag 3</td>
 <td>1 bit</td>
-<td>Verdadeiro se o detector for de pedestre</td>
+<td>Verdadeiro, se o detector for de pedestre</td>
 </tr>
 <tr>
 <td>Posição</td>
@@ -556,7 +555,7 @@ configuração seja enviada.</p>
 </tbody>
 </table>
 <h3 id="falha-detector">Falha Detector</h3>
-<p>O hardware informa ao 72c uma falha genérica</p>
+<p>O hardware informa ao 72c uma falha no Detector</p>
 <table>
 <thead>
 <tr>
@@ -579,7 +578,7 @@ configuração seja enviada.</p>
 <tr>
 <td>Flag 3</td>
 <td>1 bit</td>
-<td>Verdadeiro se o detector for de pedestre</td>
+<td>Verdadeiro, se o detector for de pedestre</td>
 </tr>
 <tr>
 <td>Posição</td>
@@ -640,43 +639,43 @@ configuração seja enviada.</p>
 <tbody>
 <tr>
 <td>0</td>
-<td>retorno</td>
+<td>Retorno</td>
 </tr>
 <tr>
 <td>1</td>
-<td>inicio</td>
+<td>Início</td>
 </tr>
 <tr>
 <td>2</td>
-<td>estagio</td>
+<td>Estágio</td>
 </tr>
 <tr>
 <td>3</td>
-<td>detector</td>
+<td>Detector</td>
 </tr>
 <tr>
 <td>4</td>
-<td>falha anel</td>
+<td>Falha anel</td>
 </tr>
 <tr>
 <td>5</td>
-<td>falha detector</td>
+<td>Falha detector</td>
 </tr>
 <tr>
 <td>6</td>
-<td>falha grupo semaforico</td>
+<td>Falha grupo semafórico</td>
 </tr>
 <tr>
 <td>7</td>
-<td>falha generica</td>
+<td>Falha genérica</td>
 </tr>
 <tr>
 <td>8</td>
-<td>alarme</td>
+<td>Alarme</td>
 </tr>
 <tr>
 <td>9</td>
-<td>Remocao de falha</td>
+<td>Remoção de falha</td>
 </tr>
 <tr>
 <td>10</td>
@@ -684,19 +683,19 @@ configuração seja enviada.</p>
 </tr>
 <tr>
 <td>11</td>
-<td>remoção de plug</td>
+<td>Remoção de plug</td>
 </tr>
 <tr>
 <td>12</td>
-<td>troca de estágio modo manual</td>
+<td>Troca de estágio modo manual</td>
 </tr>
 <tr>
 <td>13</td>
-<td>modo manual ativado</td>
+<td>Modo manual ativado</td>
 </tr>
 <tr>
 <td>14</td>
-<td>modo manual desativado</td>
+<td>Modo manual desativado</td>
 </tr>
 </tbody>
 </table>
@@ -719,7 +718,7 @@ configuração seja enviada.</p>
 </tr>
 <tr>
 <td>2</td>
-<td>Tipo de Mensagem Invalido</td>
+<td>Tipo de Mensagem Inválido</td>
 </tr>
 </tbody>
 </table>

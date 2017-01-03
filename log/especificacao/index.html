@@ -159,6 +159,8 @@
                 
                     <li><a class="toctree-l4" href="#niveis">Níveis</a></li>
                 
+                    <li><a class="toctree-l4" href="#padrao-das-mensagens-para-os-niveis-normal-e-detalhado">Padrão das Mensagens para os níveis normal e detalhado</a></li>
+                
             
             </ul>
         
@@ -251,13 +253,361 @@
 <h3 id="erro">ERRO</h3>
 <p>Eventos de log relacionados a erros no controlador</p>
 <h2 id="niveis">Níveis</h2>
-<p>O controlador deve ser capaz de ser configurado para atender 3 nível de log diferentes:</p>
+<p>O controlador deve ser capaz de ser configurado para atender 3 nível de log diferentes. As mensagem de log dos níveis normal e detalhado são padranizadas e não podem ser alteradas. As mensagem de log do nível superdetalhado são de livre utilização.</p>
 <h3 id="normal">NORMAL</h3>
 <p>Eventos normais da execução do controlador.</p>
 <h3 id="detalhado">DETALHADO</h3>
 <p>Incluí os eventos do nível normal é adiciona eventos para ajudar a encontrar problemas na comunicação.</p>
 <h3 id="superdetalhado">SUPERDETALHADO</h3>
 <p>Incluí o máximo de informações possíveis no log.</p>
+<h2 id="padrao-das-mensagens-para-os-niveis-normal-e-detalhado">Padrão das Mensagens para os níveis normal e detalhado</h2>
+<table>
+<thead>
+<tr>
+<th>Nível</th>
+<th>Tópico</th>
+<th>Momento</th>
+<th>Padrão</th>
+<th>Exemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DETALHADO</td>
+<td>COMUNICACAO</td>
+<td>A cada passo de uma transação</td>
+<td>"[%s] %s" tipo da transação, etapa da transação</td>
+<td></td>
+</tr>
+<tr>
+<td>DETALHADO</td>
+<td>COMUNICACAO</td>
+<td>Quando o cliente perde conexão a conexão com o broker MQTT</td>
+<td>MQTT perdeu a conexão com o broker. Restartando ator.</td>
+<td></td>
+</tr>
+<tr>
+<td>DETALHADO</td>
+<td>COMUNICACAO</td>
+<td>Quando uma mensagem não pode ser processada</td>
+<td>Ocorreceu um erro no processamento de mensagens. a mensagem será desprezada</td>
+<td></td>
+</tr>
+<tr>
+<td>DETALHADO</td>
+<td>EXECUCAO</td>
+<td>Quando a comunicação serial é iniciada</td>
+<td>Comunicação serial pronta para iniciar</td>
+<td></td>
+</tr>
+<tr>
+<td>DETALHADO</td>
+<td>EXECUCAO</td>
+<td>Quando a comunicação serial é iniciada</td>
+<td>Iniciando a comunicação serial</td>
+<td></td>
+</tr>
+<tr>
+<td>DETALHADO</td>
+<td>INICIALIZACAO</td>
+<td>Ao definir a porta MQTT</td>
+<td>"MQTT PORT       :%s", port</td>
+<td>03/01/2017 17:37:48.887 - [INICIALIZACAO] MQTT PORT :1883</td>
+</tr>
+<tr>
+<td>DETALHADO</td>
+<td>INICIALIZACAO</td>
+<td>Ao definir a senha do MQTT</td>
+<td>"MQTT PWD        :%s", senha</td>
+<td>03/01/2017 17:37:48.887 - [INICIALIZACAO] MQTT PWD :PASSWORD</td>
+</tr>
+<tr>
+<td>DETALHADO</td>
+<td>INICIALIZACAO</td>
+<td>Ao definir o host MQTT</td>
+<td>"MQTT HOST       :%s", host</td>
+<td>03/01/2017 17:37:48.886 - [INICIALIZACAO] MQTT HOST :mosquitto.influunt.com.br</td>
+</tr>
+<tr>
+<td>DETALHADO</td>
+<td>INICIALIZACAO</td>
+<td>Ao definir o id do controlador</td>
+<td>"ID CONTROLADOR  :%s", id</td>
+<td>03/01/2017 17:37:48.886 - [INICIALIZACAO] ID CONTROLADOR :d933e586-b763-4c26-bc5f-ef1a60428003</td>
+</tr>
+<tr>
+<td>DETALHADO</td>
+<td>INICIALIZACAO</td>
+<td>Ao definir o login do MQTT</td>
+<td>"MQTT LOGIN      :%s", login</td>
+<td>03/01/2017 17:37:48.887 - [INICIALIZACAO] MQTT LOGIN :d933e586-b763-4c26-bc5f-ef1a60428003</td>
+</tr>
+<tr>
+<td>DETALHADO</td>
+<td>INICIALIZACAO</td>
+<td>Ao solicitar configuração à central</td>
+<td>Verificando a configuração do controlador</td>
+<td>03/01/2017 17:37:51.430 - [INICIALIZACAO] Verificando a configuração do controlador</td>
+</tr>
+<tr>
+<td>DETALHADO</td>
+<td>INICIALIZACAO</td>
+<td>Quando a central devolve a configuração</td>
+<td>Configuração encontrada</td>
+<td>03/01/2017 17:37:51.443 - [INICIALIZACAO] Configuração encontrada</td>
+</tr>
+<tr>
+<td>DETALHADO</td>
+<td>INICIALIZACAO</td>
+<td>Quando o controlador começa a executar a programação semafórica</td>
+<td>O controlador foi colocado em execução</td>
+<td></td>
+</tr>
+<tr>
+<td>NORMAL</td>
+<td>ERRO</td>
+<td>Quando não é possível se conectar na porta serial</td>
+<td>Falha na comunicação serial. Não foi possivel enviar mensagem</td>
+<td></td>
+</tr>
+<tr>
+<td>NORMAL</td>
+<td>ERRO</td>
+<td>Quando não é possível se conectar na porta serial</td>
+<td>Não foi possível abrir comunicação pela porta:  + porta</td>
+<td></td>
+</tr>
+<tr>
+<td>NORMAL</td>
+<td>ERRO</td>
+<td>Quando não é possível se conectar na porta serial</td>
+<td>Não foi possível iniciar a comunicação serial</td>
+<td></td>
+</tr>
+<tr>
+<td>NORMAL</td>
+<td>EXECUCAO</td>
+<td>Quando a tabela horária muda</td>
+<td>Mudança de tabela horária</td>
+<td></td>
+</tr>
+<tr>
+<td>NORMAL</td>
+<td>INICIALIZACAO</td>
+<td>Ao iniciar o OS</td>
+<td>Iniciando O 72C</td>
+<td></td>
+</tr>
+<tr>
+<td>NORMAL</td>
+<td>INICIALIZACAO</td>
+<td>Quando o controlador está no ar, mas ainda não existe uma configuração válida</td>
+<td>Não existe configuração para iniciar o motor</td>
+<td></td>
+</tr>
+<tr>
+<td>NORMAL</td>
+<td>INICIALIZACAO</td>
+<td>Quando o controlador está no ar, mas ainda não existe uma configuração válida</td>
+<td>O controlador será iniciado quando um configuração for recebida</td>
+<td></td>
+</tr>
+<tr>
+<td>NORMAL</td>
+<td>EXECUCAO</td>
+<td>Quando um evento é gerado</td>
+<td>"[%s] %s", Tipo evento - Descricao do evento"</td>
+<td>Ver tabela de descrição de tipo de evento</td>
+</tr>
+</tbody>
+</table>
+<h3 id="tabela-de-descricao-de-tipo-de-evento">Tabela de descrição de tipo de evento</h3>
+<table>
+<thead>
+<tr>
+<th>Tipo Evento</th>
+<th>Descrição</th>
+<th>Parâmetros</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ALARME ABERTURA DA PORTA PRINCIPAL DO CONTROLADOR</td>
+<td>Abertura da porta principal do controlador</td>
+<td></td>
+</tr>
+<tr>
+<td>ALARME FECHAMENTO DA PORTA PRINCIPAL DO CONTROLADOR</td>
+<td>Fechamento da porta principal do controlador</td>
+<td></td>
+</tr>
+<tr>
+<td>ALARME ABERTURA DA PORTA DO PAINEL DE FACILIDADES DO CONTROLADOR</td>
+<td>Abertura da porta do painel de facilidades do controlador</td>
+<td></td>
+</tr>
+<tr>
+<td>ALARME FECHAMENTO DA PORTA DO PAINEL DE FACILIDADES DO CONTROLADOR</td>
+<td>Fechamento da porta do painel de facilidades do controlador</td>
+<td></td>
+</tr>
+<tr>
+<td>ALARME AMARELO INTERMITENTE</td>
+<td>Amarelo Intermitente</td>
+<td></td>
+</tr>
+<tr>
+<td>ALARME SEMAFORO APAGADO</td>
+<td>Semafóro apagado</td>
+<td>Número do Anel, Número do Detector</td>
+</tr>
+<tr>
+<td>FALHA DETECTOR PEDESTRE FALTA ACIONAMENTO</td>
+<td>Anel %s: Falha no DP%s - Falta de Acionamento</td>
+<td>Número do Anel, Número do Detector</td>
+</tr>
+<tr>
+<td>FALHA DETECTOR PEDESTRE ACIONAMENTO DIRETO</td>
+<td>Anel %s: Falha no DP%s - Acionamento Direto</td>
+<td>Número do Anel, Número do Detector</td>
+</tr>
+<tr>
+<td>FALHA DETECTOR VEICULAR FALTA ACIONAMENTO</td>
+<td>Anel %s: Falha no DV%s - Falta de Acionamento</td>
+<td>Número do Anel, Número do Detector</td>
+</tr>
+<tr>
+<td>FALHA DETECTOR VEICULAR ACIONAMENTO DIRETO</td>
+<td>Anel %s: Falha no DV%s - Acionamento Direto</td>
+<td>Número do Anel, Número do Detector</td>
+</tr>
+<tr>
+<td>FALHA DESRESPEITO AO TEMPO MAXIMO DE PERMANENCIA NO ESTAGIO</td>
+<td>Anel %s: Desrespeito ao tempo máximo de permanência no estágio</td>
+<td>Número do Anel</td>
+</tr>
+<tr>
+<td>FALHA FASE VERMELHA DE GRUPO SEMAFORICO APAGADA</td>
+<td>Anel %s: Fase vermelha do G%s apagada</td>
+<td>Número do Anel</td>
+</tr>
+<tr>
+<td>FALHA SEQUENCIA DE CORES</td>
+<td>Anel %s: Falha sequencia de cores</td>
+<td>Número do Anel</td>
+</tr>
+<tr>
+<td>FALHA VERDES CONFLITANTES</td>
+<td>Anel %s: Falha de Verdes conflitantes</td>
+<td>Número do Anel</td>
+</tr>
+<tr>
+<td>FALHA WATCH DOG</td>
+<td>Falha CPU</td>
+<td></td>
+</tr>
+<tr>
+<td>FALHA MEMORIA</td>
+<td>Falha Memoria</td>
+<td></td>
+</tr>
+<tr>
+<td>FALHA FOCO VERMELHO DE GRUPO SEMAFORICO APAGADA</td>
+<td>Anel %s: Foco vermelho do G%s apagado</td>
+<td>Número do Anel, Número do Grupo Semafórico</td>
+</tr>
+<tr>
+<td>FALHA COMUNICACAO BAIXO NIVEL</td>
+<td>Falha na comunicação do protocolo de baixo nível</td>
+<td></td>
+</tr>
+<tr>
+<td>FALHA ACERTO RELOGIO GPS</td>
+<td>Falha acerto relógio GPS</td>
+<td></td>
+</tr>
+<tr>
+<td>REMOCAO FALHA DETECTOR PEDESTRE</td>
+<td>Anel %s: Falha no DP%s removida</td>
+<td>Número do Anel, Número do Detector</td>
+</tr>
+<tr>
+<td>REMOCAO FALHA DETECTOR VEICULAR</td>
+<td>Anel %s: Falha no DV%s removida</td>
+<td>Número do Anel, Número do Detector</td>
+</tr>
+<tr>
+<td>REMOCAO FALHA FASE VERMELHA DE GRUPO SEMAFORICO</td>
+<td>%s: Fase vermelha do G%s apagada removida</td>
+<td>Número do Anel, Número do Grupo Semafórico</td>
+</tr>
+<tr>
+<td>REMOCAO FALHA VERDES CONFLITANTES</td>
+<td>Anel %s: Falha de Verdes conflitantes removido</td>
+<td>Número do Anel</td>
+</tr>
+<tr>
+<td>REMOCAO FOCO VERMELHO DE GRUPO SEMAFORICO</td>
+<td>Anel %s: Foco vermelho do G%s apagado removida</td>
+<td>Número do Anel, Número do Grupo Semafórico</td>
+</tr>
+<tr>
+<td>REMOCAO COMUNICACAO BAIXO NIVEL</td>
+<td>Comunicação do protocolo de baixo nível recuperada</td>
+<td></td>
+</tr>
+<tr>
+<td>ACIONAMENTO DETECTOR VEICULAR</td>
+<td>%s foi acionado</td>
+<td>Número do Detector</td>
+</tr>
+<tr>
+<td>ACIONAMENTO DETECTOR PEDESTRE</td>
+<td>%s foi acionado</td>
+<td>Número do Detector</td>
+</tr>
+<tr>
+<td>INSERCAO DE PLUG DE CONTROLE MANUAL</td>
+<td>Inserção de plug do controle manual</td>
+<td></td>
+</tr>
+<tr>
+<td>RETIRADA DE PLUG DE CONTROLE MANUAL</td>
+<td>Retirada de plug do controle manual</td>
+<td></td>
+</tr>
+<tr>
+<td>TROCA ESTAGIO MANUAL</td>
+<td>Troca estágio no modo manual</td>
+<td></td>
+</tr>
+<tr>
+<td>MODO MANUAL ATIVADO</td>
+<td>Modo manual ativado</td>
+<td>Número do Anel, Número do Plano</td>
+</tr>
+<tr>
+<td>IMPOSICAO PLANO</td>
+<td>Anel %s: Plano %s foi imposto com duração de %s minutos</td>
+<td>Número do Anel, Número do Plano, minutos</td>
+</tr>
+<tr>
+<td>IMPOSICAO MODO</td>
+<td>Anel %s: Modo de operação %s foi imposto</td>
+<td>Número do Anel, Modo de Operação</td>
+</tr>
+<tr>
+<td>LIBERAR IMPOSICAO</td>
+<td>Anel %s: Foi liberado da imposição</td>
+<td>Número do Anel</td>
+</tr>
+<tr>
+<td>TROCA DE PLANO NO ANEL</td>
+<td>Plano %s está ativo</td>
+<td>Número do Plano</td>
+</tr>
+</tbody>
+</table>
               
             </div>
           </div>

@@ -43,7 +43,7 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
       <div class="wy-side-nav-search">
-        <a href="../../.." class="icon icon-home"> Influunt Documentação</a>
+        <a href="../../../comunicacao/introducao/" class="icon icon-home"> Influunt Documentação</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -53,13 +53,6 @@
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
         <ul class="current">
-          
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../../..">Home</a>
-        
-    </li>
-<li>
           
             <li>
     <ul class="subnav">
@@ -96,13 +89,8 @@
 
         
             
-    <ul class="subnav">
-    <li><span>Alto Nível</span></li>
-
-        
-            
     <li class="toctree-l1 ">
-        <a class="" href="../introducao/">Introdução</a>
+        <a class="" href="../introducao/">Protocolo de Alto Nível</a>
         
     </li>
 
@@ -155,22 +143,26 @@
     </li>
 
         
-    </ul>
-
-        
-            
-    <ul class="subnav">
-    <li><span>Baixo Nível</span></li>
-
-        
             
     <li class="toctree-l1 ">
-        <a class="" href="../../baixo_nivel/introducao/">Introdução</a>
+        <a class="" href="../../baixo_nivel/introducao/">Protovolo de Baixo Nível</a>
         
     </li>
 
         
     </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Log</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../../log/especificacao/">Especificação</a>
+        
+    </li>
 
         
     </ul>
@@ -186,7 +178,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../../..">Influunt Documentação</a>
+        <a href="../../../comunicacao/introducao/">Influunt Documentação</a>
       </nav>
 
       
@@ -194,15 +186,11 @@
         <div class="rst-content">
           <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="../../..">Docs</a> &raquo;</li>
+    <li><a href="../../../comunicacao/introducao/">Docs</a> &raquo;</li>
     
       
         
           <li>Protocolos &raquo;</li>
-        
-      
-        
-          <li>Alto Nível &raquo;</li>
         
       
     
@@ -217,7 +205,7 @@
             <div class="section">
               
                 <h1 id="alarmes-e-falhas">Alarmes e Falhas</h1>
-<p>Diversos tipos de eventos podem ser gerados durante a execução do controlador. Esses eventos podem ser transmitidos à central ou serem gravados no log. No caso do 72c, o arquivo de configuração define quais eventos serão enviados e gravados.</p>
+<p>Diversos tipos de eventos podem ser gerados durante a execução do controlador. Esses eventos podem ser transmitidos à central ou gravados no log. No caso do 72c, o arquivo de configuração define quais eventos serão enviados e gravados.</p>
 <p>A seguir estão detalhados todos os eventos possíveis:</p>
 <h2 id="alarme">Alarme</h2>
 <table>
@@ -251,28 +239,13 @@
 </tr>
 <tr>
 <td>ALARME_AMARELO_INTERMITENTE</td>
-<td>4</td>
+<td>5</td>
 <td>Amarelo Intermitente</td>
 </tr>
 <tr>
 <td>ALARME_SEMAFORO_APAGADO</td>
-<td>5</td>
-<td>Semáforo apagado</td>
-</tr>
-<tr>
-<td>ALARME_ACERTO_RELOGIO_GPS</td>
 <td>6</td>
-<td>Falha acerto relógio GPS</td>
-</tr>
-<tr>
-<td>ALARME_FOCO_VERMELHO_DE_GRUPO_SEMAFORICO_APAGADA</td>
-<td>7</td>
-<td>Foco vermelho apagado</td>
-</tr>
-<tr>
-<td>ALARME_FOCO_VERMELHO_DE_GRUPO_SEMAFORICO_REMOCAO</td>
-<td>8</td>
-<td>Foco vermelho apagado removida</td>
+<td>Semáforo apagado</td>
 </tr>
 </tbody>
 </table>
@@ -291,7 +264,7 @@
 <td>timestamp</td>
 <td>Número Longo</td>
 <td>S</td>
-<td>Carimbo de tempo referente ao momento da ocorrência do evento. Deve estar no formato milissegundo desde 1 de janeiro de 1970</td>
+<td>Carimbo de tempo referente ao momento da ocorrência do evento. Deve estar no formato milissegundo desde 1 de janeiro de 1970 UTC</td>
 </tr>
 <tr>
 <td>tipoEvento</td>
@@ -550,6 +523,7 @@
 <th>Nome do Evento</th>
 <th>Código</th>
 <th>Descrição</th>
+<th>Parâmetros</th>
 </tr>
 </thead>
 <tbody>
@@ -557,51 +531,79 @@
 <td>FALHA_DETECTOR_PEDESTRE_FALTA_ACIONAMENTO</td>
 <td>1</td>
 <td>Detector pedestre - Falta de acionamento</td>
+<td>1) Nº Detector</td>
 </tr>
 <tr>
 <td>FALHA_DETECTOR_PEDESTRE_ACIONAMENTO_DIRETO</td>
 <td>2</td>
 <td>Detector pedestre - Acionamento direto</td>
+<td>1) Nº Detector</td>
 </tr>
 <tr>
 <td>FALHA_DETECTOR_VEICULAR_FALTA_ACIONAMENTO</td>
 <td>3</td>
 <td>Detector veicular - Falta de acionamento</td>
+<td>1) Nº Detector</td>
 </tr>
 <tr>
 <td>FALHA_DETECTOR_VEICULAR_ACIONAMENTO_DIRETO</td>
 <td>4</td>
 <td>Detector veicular - Acionamento direto</td>
+<td>1) Nº Detector</td>
 </tr>
 <tr>
 <td>FALHA_DESRESPEITO_AO_TEMPO_MAXIMO_DE_PERMANENCIA_NO_ESTAGIO</td>
 <td>5</td>
 <td>Desrespeito ao tempo máximo de permanência no estágio</td>
+<td>1) Nº Anel</td>
 </tr>
 <tr>
 <td>FALHA_FASE_VERMELHA_DE_GRUPO_SEMAFORICO_APAGADA</td>
 <td>6</td>
 <td>Fase vermelha do grupo semafórico apagada</td>
+<td>1) Nº Grupo Semafórico</td>
 </tr>
 <tr>
 <td>FALHA_SEQUENCIA_DE_CORES</td>
 <td>7</td>
 <td>Falha sequência de cores</td>
+<td>1) Nº Anel</td>
 </tr>
 <tr>
 <td>FALHA_VERDES_CONFLITANTES</td>
 <td>8</td>
 <td>Verdes conflitantes</td>
+<td>1) Nº Anel</td>
 </tr>
 <tr>
 <td>FALHA_WATCH_DOG</td>
 <td>9</td>
 <td>Falha CPU</td>
+<td></td>
 </tr>
 <tr>
 <td>FALHA_MEMORIA</td>
 <td>10</td>
 <td>Falha Memória</td>
+<td></td>
+</tr>
+<tr>
+<td>FALHA_FOCO_VERMELHO_DE_GRUPO_SEMAFORICO_APAGADA</td>
+<td>11</td>
+<td>Foco vermelho apagado</td>
+<td>1) Nº Grupo Semafórico</td>
+</tr>
+<tr>
+<td>FALHA_COMUNICACAO_BAIXO_NIVEL</td>
+<td>12</td>
+<td>Falha na comunicação do protocolo de baixo nível</td>
+<td></td>
+</tr>
+<tr>
+<td>FALHA_ACERTO_RELOGIO_GPS</td>
+<td>13</td>
+<td>Falha acerto relógio GPS</td>
+<td></td>
 </tr>
 </tbody>
 </table>
@@ -635,6 +637,7 @@
 <th>Nome do Evento</th>
 <th>Código</th>
 <th>Descrição</th>
+<th>Parâmetros</th>
 </tr>
 </thead>
 <tbody>
@@ -642,21 +645,37 @@
 <td>REMOCAO_FALHA_DETECTOR_PEDESTRE</td>
 <td>1</td>
 <td>Detector pedestre - Remoção de falha</td>
+<td>1) Nº Detector</td>
 </tr>
 <tr>
 <td>REMOCAO_FALHA_DETECTOR_VEICULAR</td>
 <td>2</td>
 <td>Detector veicular - Remoção de falha</td>
+<td>1) Nº Detector</td>
 </tr>
 <tr>
 <td>REMOCAO_FALHA_FASE_VERMELHA_DE_GRUPO_SEMAFORICO</td>
 <td>3</td>
 <td>Fase vermelha do grupo semafórico apagada removida</td>
+<td>1) Nº Grupo Semafórico</td>
 </tr>
 <tr>
 <td>REMOCAO_FALHA_VERDES_CONFLITANTES</td>
 <td>4</td>
 <td>Verdes conflitantes removido</td>
+<td>1) Nº Anel</td>
+</tr>
+<tr>
+<td>REMOCAO_FOCO_VERMELHO_DE_GRUPO_SEMAFORICO</td>
+<td>5</td>
+<td>Foco vermelho apagado removida</td>
+<td>1) Nº Grupo Semafórico</td>
+</tr>
+<tr>
+<td>REMOCAO_COMUNICACAO_BAIXO_NIVEL</td>
+<td>6</td>
+<td>Comunicação do protocolo de baixo nível recuperada</td>
+<td></td>
 </tr>
 </tbody>
 </table>
@@ -690,7 +709,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../baixo_nivel/introducao/" class="btn btn-neutral float-right" title="Introdução">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../../baixo_nivel/introducao/" class="btn btn-neutral float-right" title="Protovolo de Baixo Nível">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
         <a href="../transacoes/" class="btn btn-neutral" title="Transações"><span class="icon icon-circle-arrow-left"></span> Previous</a>

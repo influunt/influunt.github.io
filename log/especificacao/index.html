@@ -8,7 +8,7 @@
   
   
   
-  <title>Envelope - Influunt Documentação</title>
+  <title>Especificação - Influunt Documentação</title>
   
 
   <link rel="shortcut icon" href="../../img/favicon.ico">
@@ -23,9 +23,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Envelope";
-    var mkdocs_page_input_path = "comunicacao/envelope.md";
-    var mkdocs_page_url = "/comunicacao/envelope/";
+    var mkdocs_page_name = "Especificação";
+    var mkdocs_page_input_path = "log/especificacao.md";
+    var mkdocs_page_url = "/log/especificacao/";
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js"></script>
@@ -43,7 +43,7 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
       <div class="wy-side-nav-search">
-        <a href="../introducao/" class="icon icon-home"> Influunt Documentação</a>
+        <a href="../../comunicacao/introducao/" class="icon icon-home"> Influunt Documentação</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -61,30 +61,21 @@
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../introducao/">Introdução</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 current">
-        <a class="current" href="./">Envelope</a>
-        
-            <ul>
-            
-                <li class="toctree-l3"><a href="#envelopagem-das-mensagens">Envelopagem das Mensagens</a></li>
-                
-                    <li><a class="toctree-l4" href="#envelope-padrao">Envelope Padrão</a></li>
-                
-            
-            </ul>
+        <a class="" href="../../comunicacao/introducao/">Introdução</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../seguranca/">Segurança</a>
+        <a class="" href="../../comunicacao/envelope/">Envelope</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../comunicacao/seguranca/">Segurança</a>
         
     </li>
 
@@ -155,8 +146,21 @@
 
         
             
-    <li class="toctree-l1 ">
-        <a class="" href="../../log/especificacao/">Especificação</a>
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Especificação</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#introducao">Introdução</a></li>
+                
+                    <li><a class="toctree-l4" href="#formato">Formato</a></li>
+                
+                    <li><a class="toctree-l4" href="#classes">Classes</a></li>
+                
+                    <li><a class="toctree-l4" href="#niveis">Níveis</a></li>
+                
+            
+            </ul>
         
     </li>
 
@@ -174,7 +178,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../introducao/">Influunt Documentação</a>
+        <a href="../../comunicacao/introducao/">Influunt Documentação</a>
       </nav>
 
       
@@ -182,15 +186,15 @@
         <div class="rst-content">
           <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="../introducao/">Docs</a> &raquo;</li>
+    <li><a href="../../comunicacao/introducao/">Docs</a> &raquo;</li>
     
       
         
-          <li>Comunicação &raquo;</li>
+          <li>Log &raquo;</li>
         
       
     
-    <li>Envelope</li>
+    <li>Especificação</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -200,76 +204,60 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="envelopagem-das-mensagens">Envelopagem das Mensagens</h1>
-<p>Todas as mensagens trafegadas na aplicação devem ser envelopadas conforme as definições desse documento.</p>
-<h2 id="envelope-padrao">Envelope Padrão</h2>
-<p>O envelope é um padrão <em>JSON</em> que contém informações básicas de rastreamento da mensagem, bem como seu próprio conteúdo. Uma mensagem sempre tem como origem ou destino um controlador específico. Dessa forma, o envelope deve conter sempre o <em>id</em> do controlador.</p>
-<p>Os seguintes campos são obrigatórios no envelope:</p>
-<h3 id="campos-obrigatorios">Campos Obrigatórios</h3>
+                <h1 id="introducao">Introdução</h1>
+<h3 id="formato">Formato</h3>
 <table>
 <thead>
 <tr>
 <th>Campo</th>
-<th>Tipo</th>
 <th>Descrição</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>tipoMensagem</td>
-<td>Texto</td>
-<td>Código único que identifica o tipo de mensagem que está dentro do envelope. As mensagens que podem ser envelopadas estão definidas na seção <a href="comunicacao/mensagens.md">mensagens</a></td>
+<td>Data e Hora</td>
+<td>Data e hora no formato dd/mm/yyyy HH:MM:SS</td>
 </tr>
 <tr>
-<td>idControlador</td>
-<td>UUID</td>
-<td>Identificador do Controlador</td>
+<td>espaço</td>
+<td>um caracter de espaço usado como separador de campos</td>
 </tr>
 <tr>
-<td>idMensagem</td>
-<td>UUID</td>
-<td>Identificador único e global no formato <em>UUID</em> que identifica unicamente essa mensagem. Deve ser gerado no momento da construção do envelope</td>
+<td>Nome da classe do tipo de evento do log</td>
+<td>Nome da classe de log entre couchetes</td>
 </tr>
 <tr>
-<td>destino</td>
-<td>Texto</td>
-<td>Tópico <em>MQTT</em> em que a mensagem deve ser publicada. Para lista de tópicos veja a seção <a href="../comunicacao/mqtt">MQTT</a></td>
+<td>espaço</td>
+<td>um caracter de espaço usado como separador de campos</td>
 </tr>
 <tr>
-<td>qos</td>
-<td>Inteiro</td>
-<td>Qualidade do serviço no protocolo <em>MQTT</em> que deve ser empregado para esse envelope. Deve estar de acordo com os requisitos da <a href="comunicacao/mensagens.md">mensagem</a></td>
-</tr>
-<tr>
-<td>carimboDeTempo</td>
-<td>Número Longo</td>
-<td>Carimbo de tempo referente ao momento de criação do envelope. Deve estar no formato milissegundo desde 1 de janeiro de 1970 UTC</td>
-</tr>
-<tr>
-<td>conteudo</td>
-<td>Objeto <em>JSON</em> ou Texto Criptografado representando um Objeto <em>JSON</em></td>
-<td>Mensagem a ser entregue pelo envelope. Pode ser diretamente o objeto <em>JSON</em> ou, nos casos onde seja requerido, criptografado e convertido para <em>BASE64</em></td>
-</tr>
-<tr>
-<td>emResposta</td>
-<td>UUID</td>
-<td>Identificador único e global no formato <em>UUID</em> da mensagem original para quando essa for uma resposta</td>
+<td>evento do log</td>
+<td>Descrição textual do evento conforme especificação dos Eventos do Log</td>
 </tr>
 </tbody>
 </table>
-<p>A seguir é apresentado um exemplo de envelope:</p>
-<h3 id="exemplo-de-envelope">Exemplo de Envelope</h3>
-<pre><code class="JSON">  {
-    &quot;tipoMensagem&quot;: &quot;CONEXAO&quot;,
-    &quot;idControlador&quot;:&quot;56074e06-439b-409f-b37d-4e0dc884084f&quot;,
-    &quot;idMensagem&quot;: &quot;56074e06-439b-409f-b37d-4e0dc8840856&quot;
-    &quot;destino&quot;: &quot;/controladores/56074e06-439b-409f-b37d-4e0dc884084f/atualizarConfiguracoes&quot;,
-    &quot;qos&quot;: 1,
-    &quot;carimboDeTempo&quot;: &quot;1471272798600&quot;,
-    &quot;conteudo&quot; : {},
-    &quot;emResposta&quot;: &quot;56074e06-439b-409f-b37d-4e0dc884084d&quot;
-  }
+<pre><code>22/02/1982 20:40 [EXECUCAO] Ocorreu uma falha de verdes conflitantes no anel 1 
 </code></pre>
+
+<h2 id="classes">Classes</h2>
+<h3 id="comunicacao">COMUNICAÇÃO</h3>
+<p>Eventos de log relacionados a comunicação do controlador com a central</p>
+<h3 id="execucao">EXECUÇÃO</h3>
+<p>Eventos de log relacionados a execução dos planos semafóricos</p>
+<h3 id="inicializacao">INICIALIZAÇÃO</h3>
+<p>Eventos de log relacionados a inicialização do controlador</p>
+<h3 id="finalizacao">FINALIZAÇÃO</h3>
+<p>Eventos de log relacionados a finalização do controlador</p>
+<h3 id="erro">ERRO</h3>
+<p>Eventos de log relacionados a erros no controlador</p>
+<h2 id="niveis">Níveis</h2>
+<p>O controlador deve ser capaz de ser configurado para atender 3 nível de log diferentes:</p>
+<h3 id="normal">NORMAL</h3>
+<p>Eventos normais da execução do controlador.</p>
+<h3 id="detalhado">DETALHADO</h3>
+<p>Incluí os eventos do nível normal é adiciona eventos para ajudar a encontrar problemas na comunicação.</p>
+<h3 id="superdetalhado">SUPERDETALHADO</h3>
+<p>Incluí o máximo de informações possíveis no log.</p>
               
             </div>
           </div>
@@ -277,10 +265,8 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../seguranca/" class="btn btn-neutral float-right" title="Segurança">Next <span class="icon icon-circle-arrow-right"></span></a>
       
-      
-        <a href="../introducao/" class="btn btn-neutral" title="Introdução"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../protocolos/baixo_nivel/introducao/" class="btn btn-neutral" title="Protovolo de Baixo Nível"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -306,10 +292,8 @@
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../introducao/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../../protocolos/baixo_nivel/introducao/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
-      
-        <span style="margin-left: 15px"><a href="../seguranca/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

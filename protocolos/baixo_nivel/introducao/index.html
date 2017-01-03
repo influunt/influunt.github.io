@@ -8,7 +8,7 @@
   
   
   
-  <title>Introdução - Influunt Documentação</title>
+  <title>Protovolo de Baixo Nível - Influunt Documentação</title>
   
 
   <link rel="shortcut icon" href="../../../img/favicon.ico">
@@ -23,7 +23,7 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Introdução";
+    var mkdocs_page_name = "Protovolo de Baixo Nível";
     var mkdocs_page_input_path = "protocolos/baixo_nivel/introducao.md";
     var mkdocs_page_url = "/protocolos/baixo_nivel/introducao/";
   </script>
@@ -43,7 +43,7 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
       <div class="wy-side-nav-search">
-        <a href="../../.." class="icon icon-home"> Influunt Documentação</a>
+        <a href="../../../comunicacao/introducao/" class="icon icon-home"> Influunt Documentação</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -53,13 +53,6 @@
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
         <ul class="current">
-          
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../../..">Home</a>
-        
-    </li>
-<li>
           
             <li>
     <ul class="subnav">
@@ -96,13 +89,8 @@
 
         
             
-    <ul class="subnav">
-    <li><span>Alto Nível</span></li>
-
-        
-            
     <li class="toctree-l1 ">
-        <a class="" href="../../alto_nivel/introducao/">Introdução</a>
+        <a class="" href="../../alto_nivel/introducao/">Protocolo de Alto Nível</a>
         
     </li>
 
@@ -142,17 +130,9 @@
     </li>
 
         
-    </ul>
-
-        
-            
-    <ul class="subnav">
-    <li><span>Baixo Nível</span></li>
-
-        
             
     <li class="toctree-l1 current">
-        <a class="current" href="./">Introdução</a>
+        <a class="current" href="./">Protovolo de Baixo Nível</a>
         
             <ul>
             
@@ -167,6 +147,18 @@
 
         
     </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Log</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../../log/especificacao/">Especificação</a>
+        
+    </li>
 
         
     </ul>
@@ -182,7 +174,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../../..">Influunt Documentação</a>
+        <a href="../../../comunicacao/introducao/">Influunt Documentação</a>
       </nav>
 
       
@@ -190,19 +182,15 @@
         <div class="rst-content">
           <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="../../..">Docs</a> &raquo;</li>
+    <li><a href="../../../comunicacao/introducao/">Docs</a> &raquo;</li>
     
       
         
           <li>Protocolos &raquo;</li>
         
       
-        
-          <li>Baixo Nível &raquo;</li>
-        
-      
     
-    <li>Introdução</li>
+    <li>Protovolo de Baixo Nível</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -224,6 +212,11 @@
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>Header</td>
+<td>3 bytes</td>
+<td>&lt;I></td>
+</tr>
 <tr>
 <td>Tamanho</td>
 <td>8 bits</td>
@@ -249,8 +242,14 @@
 <td>8 bits</td>
 <td><em>Checksum</em> de toda a mensagem utilizando o algorítmo <em>LRC</em></td>
 </tr>
+<tr>
+<td>Trailler</td>
+<td>3 bytes</td>
+<td>&lt;F></td>
+</tr>
 </tbody>
 </table>
+<p>O conteúdo entre o Header e Trailler deve ser convertido para um <em>String</em> representando cada byte em Hexadecimal com duas casas, no caso de um caracter inserir zero a esquerda. </p>
 <h3 id="mensagem-de-inicio">Mensagem de Início</h3>
 <p>O 72c envia a mensagem de início ao hardware para informar que está pronto para começar o envio de estágios.</p>
 <table>
@@ -377,7 +376,7 @@
 </tr>
 <tr>
 <td>Configuração do Grupo Semafórico</td>
-<td>9 bytes por grupo semafórico</td>
+<td>10 bytes por grupo semafórico</td>
 <td>Configuração dos tempos de cada grupo semafórico</td>
 </tr>
 </tbody>
@@ -394,18 +393,23 @@
 </thead>
 <tbody>
 <tr>
+<td>Reservado</td>
+<td>4 bits</td>
+<td>Reservado</td>
+</tr>
+<tr>
 <td>Flag pedestre/veicular</td>
 <td>1 bit</td>
 <td>Se verdadeiro, esse é um grupo semafórico de pedestre</td>
 </tr>
 <tr>
 <td>Flag composição dos tempos</td>
-<td>2 bits</td>
+<td>3 bits</td>
 <td>Ver tabela de flag composição dos tempos</td>
 </tr>
 <tr>
 <td>Grupo</td>
-<td>5 bits</td>
+<td>8 bits</td>
 <td>Número do grupo semafórico</td>
 </tr>
 <tr>
@@ -454,6 +458,10 @@
 <tr>
 <td>3</td>
 <td>O grupo semafórico estará em amarelo intermitente para veícular ou desligado para pedestre durante o tempo de estágio</td>
+</tr>
+<tr>
+<td>4</td>
+<td>O grupo semafórico está executando à sequencia de partida</td>
 </tr>
 </tbody>
 </table>
@@ -729,6 +737,8 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
+        <a href="../../../log/especificacao/" class="btn btn-neutral float-right" title="Especificação">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
       
         <a href="../../alto_nivel/alertas_e_falhas/" class="btn btn-neutral" title="Alertas e Falhas"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
@@ -758,6 +768,8 @@
       
         <span><a href="../../alto_nivel/alertas_e_falhas/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
+      
+        <span style="margin-left: 15px"><a href="../../../log/especificacao/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

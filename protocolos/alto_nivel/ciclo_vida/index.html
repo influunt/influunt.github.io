@@ -43,7 +43,7 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
       <div class="wy-side-nav-search">
-        <a href="../../.." class="icon icon-home"> Influunt Documentação</a>
+        <a href="../../../comunicacao/introducao/" class="icon icon-home"> Influunt Documentação</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -53,13 +53,6 @@
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
         <ul class="current">
-          
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../../..">Home</a>
-        
-    </li>
-<li>
           
             <li>
     <ul class="subnav">
@@ -96,13 +89,8 @@
 
         
             
-    <ul class="subnav">
-    <li><span>Alto Nível</span></li>
-
-        
-            
     <li class="toctree-l1 ">
-        <a class="" href="../introducao/">Introdução</a>
+        <a class="" href="../introducao/">Protocolo de Alto Nível</a>
         
     </li>
 
@@ -157,22 +145,26 @@
     </li>
 
         
-    </ul>
-
-        
-            
-    <ul class="subnav">
-    <li><span>Baixo Nível</span></li>
-
-        
             
     <li class="toctree-l1 ">
-        <a class="" href="../../baixo_nivel/introducao/">Introdução</a>
+        <a class="" href="../../baixo_nivel/introducao/">Protovolo de Baixo Nível</a>
         
     </li>
 
         
     </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Log</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../../log/especificacao/">Especificação</a>
+        
+    </li>
 
         
     </ul>
@@ -188,7 +180,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../../..">Influunt Documentação</a>
+        <a href="../../../comunicacao/introducao/">Influunt Documentação</a>
       </nav>
 
       
@@ -196,15 +188,11 @@
         <div class="rst-content">
           <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="../../..">Docs</a> &raquo;</li>
+    <li><a href="../../../comunicacao/introducao/">Docs</a> &raquo;</li>
     
       
         
           <li>Protocolos &raquo;</li>
-        
-      
-        
-          <li>Alto Nível &raquo;</li>
         
       
     
@@ -237,10 +225,6 @@
 <td>O sistema foi instalado em um novo controlador, porém o mesmo ainda não recebeu sua configuração inicial</td>
 </tr>
 <tr>
-<td>CONFIGURADO</td>
-<td>O controlador foi corretamente configurado e aguarda comando para iniciar a operação</td>
-</tr>
-<tr>
 <td>ATIVO</td>
 <td>O controlador está ativo e operando normalmente</td>
 </tr>
@@ -249,11 +233,7 @@
 <td>O controlador foi colocado em manutenção</td>
 </tr>
 <tr>
-<td>INATIVO</td>
-<td>O controlador foi inativado. Só será ativado novamente se um comando de ativação for dado por um operador</td>
-</tr>
-<tr>
-<td>OPERANDO_COM_FALHAS</td>
+<td>COM_FALHAS</td>
 <td>O controlador detectou uma falha de menor gravidade, porém continua operando</td>
 </tr>
 <tr>
@@ -284,51 +264,44 @@
 </tr>
 <tr>
 <td>NOVO</td>
-<td>CONFIGURADO</td>
+<td>ATIVO</td>
 <td>CONFIGURACAO INICIAL</td>
 <td>Automático</td>
 <td>O controlador recebeu da central sua configuração inicial e está pronto para entrar em operação</td>
 </tr>
 <tr>
-<td>CONFIGURADO, EM MANUTENCAO, INATIVO</td>
+<td>EM MANUTENCAO, INATIVO</td>
 <td>ATIVO</td>
 <td>ATIVAR</td>
 <td>Manual</td>
 <td>O operador enviou o comando de ativar</td>
 </tr>
 <tr>
-<td>OPERANDO COM FALHAS, INOPERANTE</td>
+<td>COM FALHAS</td>
 <td>ATIVO</td>
 <td>ATIVAR</td>
 <td>Automático</td>
 <td>O controlador percebeu que a falha foi sanada e que o controlador voltou a operar normalmente</td>
 </tr>
 <tr>
-<td>ATIVO, OPERANDO COM FALHAS, INOPERANTE</td>
+<td>ATIVO, COM FALHAS</td>
 <td>EM MANUTENCAO</td>
 <td>COLOCAR EM MANUTENCAO</td>
 <td>Manual</td>
 <td>O operador enviou o comando de colocar em manutenção</td>
 </tr>
 <tr>
-<td>ATIVO, INOPERANTE</td>
-<td>OPERANDO COM FALHAS</td>
+<td>ATIVO</td>
+<td>COM FALHAS</td>
 <td>REPORTAR FALHA</td>
 <td>Automático</td>
 <td>O controlador percebeu um falha leve e continua operando mesmo assim</td>
 </tr>
 <tr>
-<td>ATIVO, OPERANDO COM FALHAS</td>
-<td>INOPERANTE</td>
-<td>REPORTAR FALHA GRAVE</td>
-<td>Automático</td>
-<td>O controlador percebeu um falha grave e interrompeu sua operação</td>
-</tr>
-<tr>
-<td>ATIVO, EM MANUTENCAO, OPERANDO COM FALHAS, INOPERANTE, CONFIGURADO</td>
+<td>ATIVO, EM MANUTENCAO, COM FALHAS</td>
 <td>INATIVO</td>
 <td>INATIVAR</td>
-<td>Automático</td>
+<td>Manual</td>
 <td>O operador enviou comando para inativar o controlador</td>
 </tr>
 </tbody>
@@ -338,7 +311,7 @@
 <h2 id="mensagem-do-ciclo-de-vida-central-controlador">Mensagem do Ciclo de Vida: Central / Controlador</h2>
 <p><img alt="CONFIGURACAO_CENTRAL_CONTROLADOR" src="../../../img/CONFIGURACAO_CENTRAL_CONTROLADOR.png" /></p>
 <h3 id="configuracao-incial">CONFIGURAÇÃO INCIAL</h3>
-<p>Quando um controlador com status NOVO se conectar à internet ele deve solicitar à central sua configuração. Para isso, deve enviar a mensagem CONFIGURACAO_INICIAL <a href="#CONFIGURACAO_INICIAL">CONFIGURACAO_INICIAL</a> para o tópico<a href="../comunicao/topicos#central_echo">/central/configuracao</a>.</p>
+<p>Quando um controlador com status NOVO se conectar à internet ele deve solicitar à central sua configuração. Para isso, deve enviar a mensagem CONFIGURACAO_INICIAL <a href="#CONFIGURACAO_INICIAL">CONFIGURACAO_INICIAL</a> para o tópico<a href="../../../protocolos/alto_nivel/introducao/">/central/configuracao</a>.</p>
 <p>O conteúdo da mensagem é vazio.</p>
 <pre><code class="JSON">{}
 </code></pre>
@@ -347,24 +320,13 @@
 <p>Essa mensagem contém todas as configurações necessárias para a operação de um controlador. Pode ser enviada como resposta à mensagem [CONFIGURACAO_INICIAL] ou quando o controlador está no estado EM_MANUTENÇÃO para atualizar sua configuração.</p>
 <p>O conteúdo dessa mensagem está especificado no tópico <a href="../../../protocolos/alto_nivel/configuracao/">Configuração do Controlador</a></p>
 <h3 id="ativar">ATIVAR</h3>
-<p>Mensagem enviada para colocar o controlador no modo de operação ATIVO. Pode ser enviada manualmente pelo operador para tirar o controlador dos estados de INATIVO e EM_MANUTENCAO, ou pelo próprio controlador ao se recuperar de uma falaha.</p>
-<pre><code class="JSON"></code></pre>
-
+<p>Mensagem enviada para colocar o controlador no modo de operação ATIVO. Pode ser enviada manualmente pelo operador para tirar o controlador dos estados de INATIVO e EM_MANUTENCAO, ou pelo próprio controlador ao se recuperar de uma falha.</p>
 <h3 id="colocar-em-manutencao">COLOCAR EM MANUTENÇÃO</h3>
 <p>O operador pode enviar a mensagem COLOCAR_EM_MANUTENCAO para realizar manutenções programadas ou de exceção em um controlador.</p>
-<pre><code class="JSON"></code></pre>
-
 <h3 id="reportar-falha">REPORTAR FALHA</h3>
-<p>Quando o controlador detecta uma falha que permita que ele continue operando ele deve enviar a mensagem REPORTAR_FALHA ao entrar no estado OPERANDO_COM_FALHAS.</p>
-<pre><code class="JSON"></code></pre>
-
-<h3 id="reportar-falha-grave">REPORTAR FALHA GRAVE</h3>
-<p>Quando o controlador detecta uma falha grave que não permita que ele continue operando, ele deve enviar a mensagem REPORTAR_FALHA_GRAVE ao entrar no estado INOPERANTE.</p>
-<pre><code class="JSON"></code></pre>
-
+<p>Quando o controlador detecta uma falha que permita que ele continue operando ele deve enviar a mensagem de FALHA ao entrar no estado COM_FALHAS.</p>
 <h3 id="inativar">INATIVAR</h3>
 <p>Um operador pode colocar um controlador como INATIVO. Esse estado deve ser utilizado para um controlador que não fará mais parte da rede.</p>
-<pre><code class="JSON"></code></pre>
               
             </div>
           </div>

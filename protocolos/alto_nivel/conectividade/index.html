@@ -43,7 +43,7 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
       <div class="wy-side-nav-search">
-        <a href="../../.." class="icon icon-home"> Influunt Documentação</a>
+        <a href="../../../comunicacao/introducao/" class="icon icon-home"> Influunt Documentação</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -53,13 +53,6 @@
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
         <ul class="current">
-          
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../../..">Home</a>
-        
-    </li>
-<li>
           
             <li>
     <ul class="subnav">
@@ -96,13 +89,8 @@
 
         
             
-    <ul class="subnav">
-    <li><span>Alto Nível</span></li>
-
-        
-            
     <li class="toctree-l1 ">
-        <a class="" href="../introducao/">Introdução</a>
+        <a class="" href="../introducao/">Protocolo de Alto Nível</a>
         
     </li>
 
@@ -118,8 +106,6 @@
                     <li><a class="toctree-l4" href="#controlador-online">Controlador Online</a></li>
                 
                     <li><a class="toctree-l4" href="#controlador-offline">Controlador Offline</a></li>
-                
-                    <li><a class="toctree-l4" href="#echo">Echo</a></li>
                 
             
             </ul>
@@ -155,22 +141,26 @@
     </li>
 
         
-    </ul>
-
-        
-            
-    <ul class="subnav">
-    <li><span>Baixo Nível</span></li>
-
-        
             
     <li class="toctree-l1 ">
-        <a class="" href="../../baixo_nivel/introducao/">Introdução</a>
+        <a class="" href="../../baixo_nivel/introducao/">Protovolo de Baixo Nível</a>
         
     </li>
 
         
     </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Log</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../../log/especificacao/">Especificação</a>
+        
+    </li>
 
         
     </ul>
@@ -186,7 +176,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../../..">Influunt Documentação</a>
+        <a href="../../../comunicacao/introducao/">Influunt Documentação</a>
       </nav>
 
       
@@ -194,15 +184,11 @@
         <div class="rst-content">
           <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="../../..">Docs</a> &raquo;</li>
+    <li><a href="../../../comunicacao/introducao/">Docs</a> &raquo;</li>
     
       
         
           <li>Protocolos &raquo;</li>
-        
-      
-        
-          <li>Alto Nível &raquo;</li>
         
       
     
@@ -217,7 +203,7 @@
             <div class="section">
               
                 <h1 id="mantendo-a-conectividade-entre-os-controladores-e-a-central">Mantendo a Conectividade Entre os Controladores e a Central</h1>
-<p>Todo controlador deve manter a central informada dos momentos em que ele está conectado e em que perde conexão com a internet.</p>
+<p>Todo controlador deve manter a central informada dos momentos em que ele está conectado e que perde conexão com a internet.</p>
 <p>Para isso, ao se conectar deve enviar a mensagem <a href="#CONTROLADOR_ONLINE">CONTROLADOR_ONLINE</a> e deixar como testamento a mensagem <a href="#CONTROLADOR_OFFLINE">CONTROLADOR_OFFLINE</a>.
 Um controlador pode testar a conectividade com a central através do comando <a href="#ECHO">ECHO</a>. A central pode fazer o mesmo com qualquer
 controlador.</p>
@@ -226,14 +212,40 @@ controlador.</p>
 que ele pode receber comandos remotos. A figura abaixo abaixo apresenta o diagrama de comunicação para essa mensagem:</p>
 <p><img alt="CONTROLADOR_ONLINE" src="../../../img/CONTROLADOR_ONLINE.png" /></p>
 <h3 id="especificacao-da-mensagem">Especificação da Mensagem</h3>
-<p>| Campo| Tipo | Obrigatório| Descrição |
-| idControlador | Texto <a href="https://en.wikipedia.org/wiki/Universally_unique_identifier">UUID</a> | SIM | Identificador do Controlador |
-| dataHora | Número Longo | SIM|  Carimbo de tempo referente ao momento de criacao da mensagem. Deve estar no formato milissegundo desde 1 de janeiro de 1970|
-| versao72c | Texto | SIM|  Versão do 72c|</p>
+<table>
+<thead>
+<tr>
+<th>Campo</th>
+<th>Tipo</th>
+<th>Obrigatório</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>idControlador</td>
+<td>Texto <a href="https://en.wikipedia.org/wiki/Universally_unique_identifier">UUID</a></td>
+<td>SIM</td>
+<td>Identificador do Controlador</td>
+</tr>
+<tr>
+<td>dataHora</td>
+<td>Número Longo</td>
+<td>SIM</td>
+<td>Carimbo de tempo referente ao momento de criacao da mensagem. Deve estar no formato milissegundo desde 1 de janeiro de 1970 UTC</td>
+</tr>
+<tr>
+<td>versao72c</td>
+<td>Texto</td>
+<td>SIM</td>
+<td>Versão do 72c</td>
+</tr>
+</tbody>
+</table>
 <pre><code class="JSON">{
-  'dataHora':'1471272798600',
-  'versao72c': '1.0.0',
-  'status' : 'ver tabela de status'
+  &quot;dataHora&quot;:&quot;1471272798600&quot;,
+  &quot;versao72c&quot;: &quot;1.0.0&quot;,
+  &quot;status&quot; : &quot;ver tabela de status&quot;
 }
 </code></pre>
 
@@ -241,19 +253,34 @@ que ele pode receber comandos remotos. A figura abaixo abaixo apresenta o diagra
 <p>Ao se conectar, o controlador deve publicar a mensagem de testamento <a href="#CONTROLADOR_OFFLINE">CONTROLADOR_OFFLINE</a> que será entregue automaticamente quando ele perder conexão com o <em>broker MQTT</em>. Essa mensagem deve ser publicada no tópico <a href="../comunicao/topicos#controladores_conn_offline">/controladores/conn/offline</a>. A figura abaixo apresenta o diagrama de comunicação para essa mensagem:</p>
 <p><img alt="CONTROLADOR_OFFLINE" src="../../../img/CONTROLADOR_OFFLINE.png" /></p>
 <h3 id="especificacao-da-mensagem_1">Especificação da Mensagem</h3>
-<p>| Campo| Tipo | Obrigatório| Descrição |
-| idControlador | Texto <em>UUID</em>|SIM | Identificador do Controlador |
-| dataHora | Número Longo | SIM|  Carimbo de tempo referente ao momento de criacao da mensagem. Deve estar no formato milissegundo desde 1 de janeiro de 1970|</p>
+<table>
+<thead>
+<tr>
+<th>Campo</th>
+<th>Tipo</th>
+<th>Obrigatório</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>idControlador</td>
+<td>Texto <em>UUID</em></td>
+<td>SIM</td>
+<td>Identificador do Controlador</td>
+</tr>
+<tr>
+<td>dataHora</td>
+<td>Número Longo</td>
+<td>SIM</td>
+<td>Carimbo de tempo referente ao momento de criacao da mensagem. Deve estar no formato milissegundo desde 1 de janeiro de 1970 UTC</td>
+</tr>
+</tbody>
+</table>
 <pre><code class="JSON">{
-  'dataHora':'1471272798600'
+  &quot;dataHora&quot;:&quot;1471272798600&quot;
 }
 </code></pre>
-
-<h2 id="echo">Echo</h2>
-<p>A mensagem <a href="#ECHO">ECHO</a> serve tanto para a central verificar se um controlador está respondendo a comandos quanto para um controlador consultar se a central está ativa. O comando <a href="#ECHO">ECHO</a> deve devolver exatamente a mensagem que foi enviada. </p>
-<p>Quando a central desejar testar um controlador, deverá enviar a mensagem ECHO para o tópico <a href="../comunicao/topicos#controlador_echo">/controlador/\&lt;ID>/echo/\&lt;ID-ECHO></a>, onde \&lt;ID> é o identificador do controlador que responderá a mensagem e ID-ECHO é o identificador do comando de ECHO. O controlador deve reposponder a mensagem no tópico <a href="../comunicao/topicos#central_echo">/central/echo/\&lt;ID-ECHO></a>, onde \&lt;ID-ECHO> é o mesmo ID informado pela central para a mensagem de ECHO.</p>
-<p>Quando o controlador desejar testar a central, deverá enviar a mensagem ECHO para o tópico <a href="../comunicao/topicos#central_echo">/central/echo/\&lt;ID-ECHO></a>, onde \&lt;ID-ECHO> é o identificador do comando de ECHO. A central irá responder com o comando ECHO no tópico <a href="../comunicao/topicos#controlador_echo">/controlador/\&lt;ID>/echo/\&lt;ID-ECHO></a>, onde \&lt;ID> é o identificador do controlador que envio o comando ECHO e \&lt;ID-ECHO> é o mesmo ID informado pela central para a mensagem de ECHO.</p>
-<p><img alt="CONTROLADOR_ONLINE" src="../../../img/ECHO.png" /></p>
               
             </div>
           </div>
@@ -264,7 +291,7 @@ que ele pode receber comandos remotos. A figura abaixo abaixo apresenta o diagra
         <a href="../ciclo_vida/" class="btn btn-neutral float-right" title="Ciclo de Vida">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../introducao/" class="btn btn-neutral" title="Introdução"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../introducao/" class="btn btn-neutral" title="Protocolo de Alto Nível"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
